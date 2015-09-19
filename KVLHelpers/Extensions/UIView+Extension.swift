@@ -10,9 +10,9 @@ import UIKit
 
 extension UIView
 {
-    var origin:CGPoint{get{return self.frame.origin}}
-    var size:CGSize{get{return self.frame.size}}
+    public var origin:CGPoint{get{return self.frame.origin}}
+    public var size:CGSize{get{return self.frame.size}}
     
-    var endX:CGFloat{get {return self.frame.origin.x + self.frame.size.width}}
-    var endY:CGFloat{get{return self.frame.origin.y + self.frame.size.height}}
+    public var endX:CGFloat{get {return self.frame.origin.x + self.frame.size.width}}
+    public var endY:CGFloat{get{return self.frame.origin.y + self.frame.size.height}}
 }
