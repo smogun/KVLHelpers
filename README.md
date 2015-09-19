@@ -22,7 +22,7 @@ pod "KVLHelpers"
 
 ## Author
 
-Misha, michaelk@top4.com
+Misha, mikoval@gmail.com
 
 ## License
 
