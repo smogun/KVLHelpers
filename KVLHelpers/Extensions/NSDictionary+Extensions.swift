@@ -8,10 +8,9 @@
 
 import Foundation
 
-extension NSDictionary
+public extension NSDictionary
 {
-    
-    /***************************************************************************************************************************************/
+    /****************************************************************************************/
     func GetString(key: String!) -> String!
     {
         let value: AnyObject? =  valueForKey(key)
@@ -32,7 +31,7 @@ extension NSDictionary
     
     
     
-    /***************************************************************************************************************************************/
+    /****************************************************************************************/
     func GetInteger(key: String!) -> Int!
     {
         let value: AnyObject? =  valueForKey(key)
@@ -54,7 +53,7 @@ extension NSDictionary
     
     
     
-    /***************************************************************************************************************************************/
+    /****************************************************************************************/
     func GetDouble(key: String!) -> Double!
     {
         let value: AnyObject? =  valueForKey(key)
@@ -75,7 +74,7 @@ extension NSDictionary
     
     
     
-    /***************************************************************************************************************************************/
+    /****************************************************************************************/
     func GetDict(key: String!) -> NSDictionary!
     {
         let value: AnyObject? =  valueForKey(key)
@@ -92,5 +91,26 @@ extension NSDictionary
         }
         
         return value as! NSDictionary
+    }
+    
+    
+    
+    /****************************************************************************************/
+    func GetBool(key: String!) -> Bool!
+    {
+        let value: AnyObject? =  valueForKey(key)
+        if (value == nil)
+        {
+            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
+            return false
+        }
+        else
+            if (value is Bool == false)
+            {
+                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"Boolean\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                return false
+        }
+        
+        return value as! Bool
     }
 }
