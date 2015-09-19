@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */; };
+		C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A81BAD6AE8005786AF /* ViewController.swift */; };
+		C6EE15AC1BAD6AE8005786AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AA1BAD6AE8005786AF /* Main.storyboard */; };
+		C6EE15AE1BAD6AE8005786AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AD1BAD6AE8005786AF /* Images.xcassets */; };
+		C6EE15B11BAD6AE8005786AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AF1BAD6AE8005786AF /* LaunchScreen.xib */; };
+		C6EE15CE1BAD6B9E005786AF /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15C91BAD6B9E005786AF /* NSDate+RFC3339Extention.swift */; };
+		C6EE15CF1BAD6B9E005786AF /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15CA1BAD6B9E005786AF /* NSDictionary+Extensions.swift */; };
+		C6EE15D01BAD6B9E005786AF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15CB1BAD6B9E005786AF /* UIColor+Extension.swift */; };
+		C6EE15D11BAD6B9E005786AF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15CC1BAD6B9E005786AF /* UIView+Extension.swift */; };
+		C6EE15D51BAD7352005786AF /* NSDate+RFC3339ExtentionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15D41BAD7352005786AF /* NSDate+RFC3339ExtentionTests.swift */; };
+		C6EE15D71BAD768C005786AF /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15D61BAD768C005786AF /* KVLLogger.swift */; };
+		C6EE15D91BAD7E10005786AF /* NSString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15D81BAD7E10005786AF /* NSString+Extensions.swift */; };
+		C6EE15DB1BAD7FC2005786AF /* NSDictionary+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15DA1BAD7FC2005786AF /* NSDictionary+ExtensionsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6EE15B71BAD6AE8005786AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6EE15991BAD6AE8005786AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6EE15A01BAD6AE8005786AF;
+			remoteInfo = KVLHelpers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVLHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6EE15A51BAD6AE8005786AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6EE15A81BAD6AE8005786AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6EE15AB1BAD6AE8005786AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6EE15AD1BAD6AE8005786AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C6EE15B01BAD6AE8005786AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C6EE15B61BAD6AE8005786AF /* KVLHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVLHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6EE15BB1BAD6AE8005786AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6EE15C91BAD6B9E005786AF /* NSDate+RFC3339Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339Extention.swift"; sourceTree = "<group>"; };
+		C6EE15CA1BAD6B9E005786AF /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
+		C6EE15CB1BAD6B9E005786AF /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C6EE15CC1BAD6B9E005786AF /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C6EE15D41BAD7352005786AF /* NSDate+RFC3339ExtentionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339ExtentionTests.swift"; sourceTree = "<group>"; };
+		C6EE15D61BAD768C005786AF /* KVLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLLogger.swift; sourceTree = "<group>"; };
+		C6EE15D81BAD7E10005786AF /* NSString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Extensions.swift"; sourceTree = "<group>"; };
+		C6EE15DA1BAD7FC2005786AF /* NSDictionary+ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+ExtensionsTests.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6EE159E1BAD6AE8005786AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6EE15B31BAD6AE8005786AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6EE15981BAD6AE8005786AF = {
+			isa = PBXGroup;
+			children = (
+				C6EE15A31BAD6AE8005786AF /* KVLHelpers */,
+				C6EE15B91BAD6AE8005786AF /* KVLHelpersTests */,
+				C6EE15A21BAD6AE8005786AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6EE15A21BAD6AE8005786AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */,
+				C6EE15B61BAD6AE8005786AF /* KVLHelpersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6EE15A31BAD6AE8005786AF /* KVLHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15C61BAD6B9D005786AF /* Classes */,
+				C6EE15C71BAD6B9D005786AF /* Extensions */,
+				C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */,
+				C6EE15A81BAD6AE8005786AF /* ViewController.swift */,
+				C6EE15AA1BAD6AE8005786AF /* Main.storyboard */,
+				C6EE15AD1BAD6AE8005786AF /* Images.xcassets */,
+				C6EE15AF1BAD6AE8005786AF /* LaunchScreen.xib */,
+				C6EE15A41BAD6AE8005786AF /* Supporting Files */,
+			);
+			path = KVLHelpers;
+			sourceTree = "<group>";
+		};
+		C6EE15A41BAD6AE8005786AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15A51BAD6AE8005786AF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6EE15B91BAD6AE8005786AF /* KVLHelpersTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15BA1BAD6AE8005786AF /* Supporting Files */,
+				C6EE15D41BAD7352005786AF /* NSDate+RFC3339ExtentionTests.swift */,
+				C6EE15DA1BAD7FC2005786AF /* NSDictionary+ExtensionsTests.swift */,
+			);
+			path = KVLHelpersTests;
+			sourceTree = "<group>";
+		};
+		C6EE15BA1BAD6AE8005786AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15BB1BAD6AE8005786AF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6EE15C61BAD6B9D005786AF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15D61BAD768C005786AF /* KVLLogger.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C6EE15C71BAD6B9D005786AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C6EE15C91BAD6B9E005786AF /* NSDate+RFC3339Extention.swift */,
+				C6EE15CA1BAD6B9E005786AF /* NSDictionary+Extensions.swift */,
+				C6EE15CB1BAD6B9E005786AF /* UIColor+Extension.swift */,
+				C6EE15CC1BAD6B9E005786AF /* UIView+Extension.swift */,
+				C6EE15D81BAD7E10005786AF /* NSString+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6EE15A01BAD6AE8005786AF /* KVLHelpers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6EE15C01BAD6AE8005786AF /* Build configuration list for PBXNativeTarget "KVLHelpers" */;
+			buildPhases = (
+				C6EE159D1BAD6AE8005786AF /* Sources */,
+				C6EE159E1BAD6AE8005786AF /* Frameworks */,
+				C6EE159F1BAD6AE8005786AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KVLHelpers;
+			productName = KVLHelpers;
+			productReference = C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6EE15B51BAD6AE8005786AF /* KVLHelpersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6EE15C31BAD6AE8005786AF /* Build configuration list for PBXNativeTarget "KVLHelpersTests" */;
+			buildPhases = (
+				C6EE15B21BAD6AE8005786AF /* Sources */,
+				C6EE15B31BAD6AE8005786AF /* Frameworks */,
+				C6EE15B41BAD6AE8005786AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6EE15B81BAD6AE8005786AF /* PBXTargetDependency */,
+			);
+			name = KVLHelpersTests;
+			productName = KVLHelpersTests;
+			productReference = C6EE15B61BAD6AE8005786AF /* KVLHelpersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6EE15991BAD6AE8005786AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Misha Koval";
+				TargetAttributes = {
+					C6EE15A01BAD6AE8005786AF = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C6EE15B51BAD6AE8005786AF = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C6EE15A01BAD6AE8005786AF;
+					};
+				};
+			};
+			buildConfigurationList = C6EE159C1BAD6AE8005786AF /* Build configuration list for PBXProject "KVLHelpers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6EE15981BAD6AE8005786AF;
+			productRefGroup = C6EE15A21BAD6AE8005786AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6EE15A01BAD6AE8005786AF /* KVLHelpers */,
+				C6EE15B51BAD6AE8005786AF /* KVLHelpersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6EE159F1BAD6AE8005786AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6EE15AC1BAD6AE8005786AF /* Main.storyboard in Resources */,
+				C6EE15B11BAD6AE8005786AF /* LaunchScreen.xib in Resources */,
+				C6EE15AE1BAD6AE8005786AF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6EE15B41BAD6AE8005786AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6EE159D1BAD6AE8005786AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6EE15D11BAD6B9E005786AF /* UIView+Extension.swift in Sources */,
+				C6EE15CE1BAD6B9E005786AF /* NSDate+RFC3339Extention.swift in Sources */,
+				C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */,
+				C6EE15D01BAD6B9E005786AF /* UIColor+Extension.swift in Sources */,
+				C6EE15D71BAD768C005786AF /* KVLLogger.swift in Sources */,
+				C6EE15CF1BAD6B9E005786AF /* NSDictionary+Extensions.swift in Sources */,
+				C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */,
+				C6EE15D91BAD7E10005786AF /* NSString+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6EE15B21BAD6AE8005786AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6EE15DB1BAD7FC2005786AF /* NSDictionary+ExtensionsTests.swift in Sources */,
+				C6EE15D51BAD7352005786AF /* NSDate+RFC3339ExtentionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6EE15B81BAD6AE8005786AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6EE15A01BAD6AE8005786AF /* KVLHelpers */;
+			targetProxy = C6EE15B71BAD6AE8005786AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6EE15AA1BAD6AE8005786AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6EE15AB1BAD6AE8005786AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6EE15AF1BAD6AE8005786AF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6EE15B01BAD6AE8005786AF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6EE15BE1BAD6AE8005786AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6EE15BF1BAD6AE8005786AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6EE15C11BAD6AE8005786AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = KVLHelpers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C6EE15C21BAD6AE8005786AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = KVLHelpers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C6EE15C41BAD6AE8005786AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KVLHelpersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVLHelpers.app/KVLHelpers";
+			};
+			name = Debug;
+		};
+		C6EE15C51BAD6AE8005786AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KVLHelpersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVLHelpers.app/KVLHelpers";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6EE159C1BAD6AE8005786AF /* Build configuration list for PBXProject "KVLHelpers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6EE15BE1BAD6AE8005786AF /* Debug */,
+				C6EE15BF1BAD6AE8005786AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6EE15C01BAD6AE8005786AF /* Build configuration list for PBXNativeTarget "KVLHelpers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6EE15C11BAD6AE8005786AF /* Debug */,
+				C6EE15C21BAD6AE8005786AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6EE15C31BAD6AE8005786AF /* Build configuration list for PBXNativeTarget "KVLHelpersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6EE15C41BAD6AE8005786AF /* Debug */,
+				C6EE15C51BAD6AE8005786AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6EE15991BAD6AE8005786AF /* Project object */;
+}
