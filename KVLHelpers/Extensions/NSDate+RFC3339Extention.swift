@@ -61,6 +61,7 @@ public extension NSDate
     // specified RFC 3339 date time string. Note that this does not handle
     // all possible RFC 3339 date time strings, just some of the most common
     // styles.
+    @objc
     class func userVisibleDateFromRFC3339DateTimeString(rfc3339DateTimeString: String!) -> NSDate?
     {
         let format1Date = sRFC3339DateFormatterType1.dateFromString(rfc3339DateTimeString);
@@ -80,6 +81,7 @@ public extension NSDate
     
     
     
+    @objc
     class func userVisibleDateTimeStringForRFC3339FromDate(date: NSDate!) -> String!
     {
         return sRFC3339DateFormatterType1.stringFromDate(date)
@@ -87,6 +89,7 @@ public extension NSDate
     
     
     
+    @objc
     class func userVisibleStringForRFC3339FromCurrentDate() -> String!
     {
         return NSDate.userVisibleDateTimeStringForRFC3339FromDate(NSDate())

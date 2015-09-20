@@ -11,14 +11,14 @@ import Foundation
 typealias WHERE = String
 
 
-/***************************************************************************************************************************************/
+/****************************************************************************************/
 func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__, col: Int = __COLUMN__) -> WHERE!
 {
     return String(format: "%@:%@:(%d,%d)", file.lastPathComponent.stringByDeletingPathExtension, function, line, col)
 }
 
 
-
+@objc
 class KVLLogger
 {
     class func printLogMessage(format: String, _ args: CVarArgType...)

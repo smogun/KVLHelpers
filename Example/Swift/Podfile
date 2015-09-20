@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'KVLHelpers', :exclusive => true do
+  pod "KVLHelpers", :path => "../"
+end
+
+target 'KVLHelpersTests', :exclusive => true do
+  pod "KVLHelpers", :path => "../" 
+end
