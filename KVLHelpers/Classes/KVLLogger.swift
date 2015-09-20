@@ -8,41 +8,41 @@
 
 import Foundation
 
-typealias WHERE = String
+public typealias WHERE = String
 
 
 /****************************************************************************************/
-func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__, col: Int = __COLUMN__) -> WHERE!
+public func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__, col: Int = __COLUMN__) -> WHERE!
 {
     return String(format: "%@:%@:(%d,%d)", file.lastPathComponent.stringByDeletingPathExtension, function, line, col)
 }
 
 
 @objc
-class KVLLogger
+public class KVLLogger
 {
-    class func printLogMessage(format: String, _ args: CVarArgType...)
+    public class func printLogMessage(format: String, _ args: CVarArgType...)
     {
         #if DEBUG
             withVaList(args) { NSLogv(format, $0) }
         #endif
     }
-    class func printErrorMessage(message: String!, location: WHERE)
+    public class func printErrorMessage(message: String!, location: WHERE)
     {
         printLogMessage("⛔️ %@ >>> %@", location, message)
     }
     
-    class func printSuccessMessage(message: String, location: WHERE)
+    public class func printSuccessMessage(message: String, location: WHERE)
     {
         printLogMessage("✅ %@ >>> %@", location, message)
     }
     
-    class func printNormalMessage(message: String, location: WHERE)
+    public class func printNormalMessage(message: String, location: WHERE)
     {
         printLogMessage("➕ %@ >>> %@", location, message)
     }
     
-    class func printError(error: NSError!, location: WHERE)
+    public class func printError(error: NSError!, location: WHERE)
     {
         printErrorMessage(String(format:"Description: %@\nFailureReason: %@\nRecoverySuggestion: %@\nRecoveryOptions: %@\nCode: %zd\nDomain: %@\nUserInfo: %@",
             error.localizedDescription,
@@ -55,7 +55,7 @@ class KVLLogger
             error.userInfo!), location: location);
     }
     
-    class func printException(exception: NSException!, location: WHERE)
+    public class func printException(exception: NSException!, location: WHERE)
     {
         printErrorMessage(String(format:"Name: %@\nReason: %@, stackTrace:%@",
             exception.name,

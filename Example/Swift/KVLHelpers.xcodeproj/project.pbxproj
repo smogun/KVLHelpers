@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86572FB0A87A058DA32FE45F /* Pods_KVLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B03A897D98ADE2361C1F8F /* Pods_KVLHelpers.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */; };
 		C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A81BAD6AE8005786AF /* ViewController.swift */; };
 		C6EE15AC1BAD6AE8005786AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AA1BAD6AE8005786AF /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13E2EEA7DCFD599151D1B368 /* Pods-KVLHelpers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVLHelpers.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers.release.xcconfig"; sourceTree = "<group>"; };
+		5CEA4861ABBBEC1E5B9ADB9E /* Pods-KVLHelpers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVLHelpers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers.debug.xcconfig"; sourceTree = "<group>"; };
+		B5B03A897D98ADE2361C1F8F /* Pods_KVLHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVLHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVLHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EE15A51BAD6AE8005786AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,26 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86572FB0A87A058DA32FE45F /* Pods_KVLHelpers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C605A2E61BAF140200BE47FC /* KVLHelpers */ = {
+		262AAD04485F8EC95212CD3A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				5CEA4861ABBBEC1E5B9ADB9E /* Pods-KVLHelpers.debug.xcconfig */,
+				13E2EEA7DCFD599151D1B368 /* Pods-KVLHelpers.release.xcconfig */,
 			);
-			name = KVLHelpers;
-			path = ../KVLHelpers;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2F61993AE079726CBE13ED46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5B03A897D98ADE2361C1F8F /* Pods_KVLHelpers.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C6EE15981BAD6AE8005786AF = {
 			isa = PBXGroup;
 			children = (
-				C605A2E61BAF140200BE47FC /* KVLHelpers */,
 				C6EE15A31BAD6AE8005786AF /* KVLHelpers */,
 				C6EE15A21BAD6AE8005786AF /* Products */,
+				262AAD04485F8EC95212CD3A /* Pods */,
+				2F61993AE079726CBE13ED46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6EE15C01BAD6AE8005786AF /* Build configuration list for PBXNativeTarget "KVLHelpers" */;
 			buildPhases = (
+				45A0B4E24A735454734A775D /* Check Pods Manifest.lock */,
 				C6EE159D1BAD6AE8005786AF /* Sources */,
 				C6EE159E1BAD6AE8005786AF /* Frameworks */,
 				C6EE159F1BAD6AE8005786AF /* Resources */,
+				69509EC3EE0B5E956763175B /* Embed Pods Frameworks */,
+				902439899E885EC76045EFB0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +163,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45A0B4E24A735454734A775D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		69509EC3EE0B5E956763175B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		902439899E885EC76045EFB0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6EE159D1BAD6AE8005786AF /* Sources */ = {
@@ -214,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -253,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -263,10 +329,12 @@
 		};
 		C6EE15C11BAD6AE8005786AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CEA4861ABBBEC1E5B9ADB9E /* Pods-KVLHelpers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = KVLHelpers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -274,10 +342,12 @@
 		};
 		C6EE15C21BAD6AE8005786AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13E2EEA7DCFD599151D1B368 /* Pods-KVLHelpers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = KVLHelpers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

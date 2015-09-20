@@ -11,7 +11,7 @@ import Foundation
 public extension NSDictionary
 {
     /****************************************************************************************/
-    func GetString(key: String!) -> String!
+    public func GetString(key: String!) -> String!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -32,7 +32,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    func GetInteger(key: String!) -> Int!
+    public func GetInteger(key: String!) -> Int!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -54,7 +54,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    func GetDouble(key: String!) -> Double!
+    public func GetDouble(key: String!) -> Double!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -75,7 +75,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    func GetDict(key: String!) -> NSDictionary!
+    public func GetDict(key: String!) -> NSDictionary!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -96,7 +96,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    func GetBool(key: String!) -> Bool!
+    public func GetBool(key: String!) -> Bool!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
