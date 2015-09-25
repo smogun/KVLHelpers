@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CD57ACD7F885A4804179422 /* Pods_KVLHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802A662235280FCF9BFFBB22 /* Pods_KVLHelpers.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C605A3121BAF197700BE47FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C605A3111BAF197700BE47FC /* main.m */; };
 		C605A3151BAF197700BE47FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C605A3141BAF197700BE47FC /* AppDelegate.m */; };
 		C605A3181BAF197700BE47FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C605A3171BAF197700BE47FC /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D31738A6BB6C31F2D548539 /* Pods-KVLHelpers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVLHelpers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers.debug.xcconfig"; sourceTree = "<group>"; };
+		802A662235280FCF9BFFBB22 /* Pods_KVLHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVLHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C605A30C1BAF197700BE47FC /* KVLHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVLHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C605A3101BAF197700BE47FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C605A3111BAF197700BE47FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		C605A31A1BAF197700BE47FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C605A31C1BAF197700BE47FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C605A31F1BAF197700BE47FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EE77CCB51CEAC2F00FF8B307 /* Pods-KVLHelpers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVLHelpers.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD57ACD7F885A4804179422 /* Pods_KVLHelpers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A13F8C2508F109BE1A7FB9FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D31738A6BB6C31F2D548539 /* Pods-KVLHelpers.debug.xcconfig */,
+				EE77CCB51CEAC2F00FF8B307 /* Pods-KVLHelpers.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9695C68A69F6C77E89F088A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				802A662235280FCF9BFFBB22 /* Pods_KVLHelpers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C605A3031BAF197700BE47FC = {
 			isa = PBXGroup;
 			children = (
 				C605A30E1BAF197700BE47FC /* KVLHelpers */,
 				C605A30D1BAF197700BE47FC /* Products */,
+				A13F8C2508F109BE1A7FB9FF /* Pods */,
+				A9695C68A69F6C77E89F088A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C605A32F1BAF197700BE47FC /* Build configuration list for PBXNativeTarget "KVLHelpers" */;
 			buildPhases = (
+				50E93F13D2DCCFA02CC16260 /* Check Pods Manifest.lock */,
 				C605A3081BAF197700BE47FC /* Sources */,
 				C605A3091BAF197700BE47FC /* Frameworks */,
 				C605A30A1BAF197700BE47FC /* Resources */,
+				EE090D7359EDC31655EC7287 /* Embed Pods Frameworks */,
+				BD61825DC254DD19B8684502 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,6 +170,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50E93F13D2DCCFA02CC16260 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD61825DC254DD19B8684502 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE090D7359EDC31655EC7287 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVLHelpers/Pods-KVLHelpers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C605A3081BAF197700BE47FC /* Sources */ = {
@@ -261,20 +336,24 @@
 		};
 		C605A3301BAF197700BE47FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D31738A6BB6C31F2D548539 /* Pods-KVLHelpers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KVLHelpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		C605A3311BAF197700BE47FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE77CCB51CEAC2F00FF8B307 /* Pods-KVLHelpers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KVLHelpers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

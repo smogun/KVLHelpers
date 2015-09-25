@@ -18,6 +18,11 @@ public func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTI
 }
 
 
+/*
+IMPORTANT! in order for this class to print there is a need to add DEBUG flag:
+           POD project -> Buld settings -> Seift compiler - Custom Flags -> other Swift Flags -> Debug -> add "-DDEBUG"
+           See example projects for help.
+*/
 @objc
 public class KVLLogger
 {

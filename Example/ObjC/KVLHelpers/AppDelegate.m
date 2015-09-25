@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+@import KVLHelpers;
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    
+    [KVLLogger printSuccessMessage:@"Yay this works!" location:@"here"];
     return YES;
 }
 

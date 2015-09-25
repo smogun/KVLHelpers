@@ -3,4 +3,18 @@ use_frameworks!
 
 target 'KVLHelpers', :exclusive => true do
   pod "KVLHelpers", :path => "../../"
+  
+  post_install do |installer|
+      installer.pods_project.build_configurations.each do |config|
+          if config.name.include?("Debug")
+              
+              # Add DEBUG to custom configurations containing 'Debug'
+              config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)']
+              if !config.build_settings['OTHER_SWIFT_FLAGS'].include? '-DDEBUG'
+                  config.build_settings['OTHER_SWIFT_FLAGS'] << '-DDEBUG'
+              end
+          end
+      end
+    end
 end
+
