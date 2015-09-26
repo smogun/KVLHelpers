@@ -49,15 +49,15 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testValidFetchFromDictionary()
     {
-        let integer = dict.GetInteger(integerKey)
+        let integer = dict.GetNumber(integerKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == integerValue, "Incorrect value")
         
-        let double = dict.GetDouble(doubleKey)
+        let double = dict.GetNumber(doubleKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == doubleValue, "Incorrect value")
         
-        let boolean = dict.GetBool(booleanKey)
+        let boolean = dict.GetNumber(booleanKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == booleanValue, "Incorrect value")
         
@@ -72,15 +72,15 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testInValidFetchFromDictionary()
     {
-        let integer = dict.GetInteger(dictionaryKey)
+        let integer = dict.GetNumber(dictionaryKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetDouble(dictionaryKey)
+        let double = dict.GetNumber(dictionaryKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetBool(dictionaryKey)
+        let boolean = dict.GetNumber(dictionaryKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         
@@ -96,15 +96,15 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     func testMissingObjectsInDictionary()
     {
         let nonExistantValueKey = "bla bla bla"
-        let integer = dict.GetInteger(nonExistantValueKey)
+        let integer = dict.GetNumber(nonExistantValueKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetDouble(nonExistantValueKey)
+        let double = dict.GetNumber(nonExistantValueKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetBool(nonExistantValueKey)
+        let boolean = dict.GetNumber(nonExistantValueKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         
@@ -121,15 +121,15 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testNSNullObjectsInDictionary()
     {
-        let integer = dict.GetInteger(nsNullKey)
+        let integer = dict.GetNumber(nsNullKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetDouble(nsNullKey)
+        let double = dict.GetNumber(nsNullKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetBool(nsNullKey)
+        let boolean = dict.GetNumber(nsNullKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         

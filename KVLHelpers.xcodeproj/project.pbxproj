@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C605A3371BAF1F9600BE47FC /* KVLHelpers.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */; };
 		C605A33A1BAF1F9A00BE47FC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C605A3381BAF1F9A00BE47FC /* LICENSE */; };
-		C605A33B1BAF1F9A00BE47FC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C605A3391BAF1F9A00BE47FC /* README.md */; };
 		C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334B1BB6812C003D93D2 /* KVLLogger.swift */; };
 		C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */; };
 		C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */; };
@@ -229,7 +228,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Misha Koval";
 				TargetAttributes = {
 					C6EE15A01BAD6AE8005786AF = {
@@ -292,7 +291,6 @@
 				C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */,
 				C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */,
 				C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */,
-				C605A33B1BAF1F9A00BE47FC /* README.md in Sources */,
 				C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */,
 				C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */,
 				C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */,
@@ -359,6 +357,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
