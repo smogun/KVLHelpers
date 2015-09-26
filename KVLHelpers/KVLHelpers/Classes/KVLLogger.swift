@@ -19,9 +19,10 @@ public func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTI
 
 
 /*
-IMPORTANT! in order for this class to print there is a need to add DEBUG flag:
-           POD project -> Buld settings -> Seift compiler - Custom Flags -> other Swift Flags -> Debug -> add "-DDEBUG"
-           See example projects for help.
+IMPORTANT!  in order for this class to print, there is a need to add DEBUG flag in build settings for debug scheme.
+If installed from pods, this has to be done in POD target:
+(POD project -> Buld settings -> Swift compiler - Custom Flags -> other Swift Flags -> Debug -> add "-DDEBUG")
+Since POD target is being assembled by pod install, pod file has to include "post_install" script (see example projects).
 */
 @objc
 public class KVLLogger
@@ -32,41 +33,50 @@ public class KVLLogger
             withVaList(args) { NSLogv(format, $0) }
         #endif
     }
-    public class func printErrorMessage(message: String!, location: WHERE)
+    public class func printErrorMessage(message: String?, location: WHERE?)
     {
-        printLogMessage("⛔️ %@ >>> %@", location, message)
+        printLogMessage("⛔️ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printSuccessMessage(message: String, location: WHERE)
+    public class func printSuccessMessage(message: String?, location: WHERE?)
     {
-        printLogMessage("✅ %@ >>> %@", location, message)
+        printLogMessage("✅ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printNormalMessage(message: String, location: WHERE)
+    public class func printNormalMessage(message: String?, location: WHERE?)
     {
-        printLogMessage("➕ %@ >>> %@", location, message)
+        printLogMessage("➕ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printError(error: NSError!, location: WHERE)
+    public class func printError(error: NSError?, location: WHERE?)
     {
-        let localizedRecoveryOptions:AnyObject? = error.localizedRecoveryOptions
-        let userInfo:AnyObject? = error.userInfo
+        if (error == nil)
+        {
+            return;
+        }
+        
+        let localizedRecoveryOptions:AnyObject? = error!.localizedRecoveryOptions
+        let userInfo:AnyObject? = error!.userInfo
         
         printErrorMessage(String(format:"Description: %@\nFailureReason: %@\nRecoverySuggestion: %@\nRecoveryOptions: %@\nCode: %zd\nDomain: %@\nUserInfo: %@",
-            error.localizedDescription,
-            error.localizedFailureReason == nil ? "" : error.localizedDescription,
-            (error.localizedRecoverySuggestion == nil ? "" : error.localizedRecoverySuggestion)!,
+            error!.localizedDescription,
+            error!.localizedFailureReason == nil ? "" : error!.localizedDescription,
+            (error!.localizedRecoverySuggestion == nil ? "" : error!.localizedRecoverySuggestion)!,
             localizedRecoveryOptions == nil ? "" : localizedRecoveryOptions as! String,
-            error.code,
-            error.domain,
-            userInfo == nil ? "" : userInfo as! NSDictionary), location: location);
+            error!.code,
+            error!.domain,
+            userInfo == nil ? "" : userInfo as! NSDictionary), location: location == nil ? "" : location!);
     }
     
-    public class func printException(exception: NSException!, location: WHERE)
+    public class func printException(exception: NSException?, location: WHERE?)
     {
+        if (exception == nil)
+        {
+            return;
+        }
         printErrorMessage(String(format:"Name: %@\nReason: %@, stackTrace:%@",
-            exception.name,
-            exception.reason!,
-            exception.callStackSymbols), location: location);
+            exception!.name,
+            exception!.reason!,
+            exception!.callStackSymbols), location: location == nil ? "" : location!);
     }
 }
