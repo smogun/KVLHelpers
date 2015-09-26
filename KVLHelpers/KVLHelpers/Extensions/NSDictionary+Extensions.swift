@@ -16,7 +16,6 @@ public extension NSDictionary
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
         {
-            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
             return ""
         }
         else
@@ -30,46 +29,42 @@ public extension NSDictionary
     }
     
     
-    
     /****************************************************************************************/
-    public func GetInteger(key: String!) -> Int!
+    public func GetNumber(key: String!) -> NSNumber!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
         {
-            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
-            return 0
+            return NSNumber(integer: 0)
         }
         else
-            if (value is Int == false)
+            if (value is NSNumber == false)
             {
-                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
-                return 0
+                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"NSNumber\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                return NSNumber(integer: 0)
         }
         
-        return value as! Int
+        return value as! NSNumber
     }
     
     
     
-    
     /****************************************************************************************/
-    public func GetDouble(key: String!) -> Double!
+    public func GetArray(key: String!) -> NSArray!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
         {
-            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
-            return 0.0
+            return NSArray()
         }
         else
-            if (value is Double == false)
+            if (value is NSArray == false)
             {
-                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
-                return 0.0
+                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"NSArray\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                return NSArray()
         }
         
-        return value as! Double
+        return value as! NSArray
     }
     
     
@@ -80,7 +75,6 @@ public extension NSDictionary
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
         {
-            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
             return NSDictionary()
         }
         else
@@ -93,24 +87,4 @@ public extension NSDictionary
         return value as! NSDictionary
     }
     
-    
-    
-    /****************************************************************************************/
-    public func GetBool(key: String!) -> Bool!
-    {
-        let value: AnyObject? =  valueForKey(key)
-        if (value == nil)
-        {
-            KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got \"nil\"", key), location: GetCodeLocation())
-            return false
-        }
-        else
-            if (value is Bool == false)
-            {
-                KVLLogger.printErrorMessage(String(format: "Tried to fetch \"Boolean\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
-                return false
-        }
-        
-        return value as! Bool
-    }
 }
