@@ -49,15 +49,17 @@ public class KVLLogger
     
     public class func printError(error: NSError!, location: WHERE)
     {
+        let localizedRecoveryOptions:AnyObject? = error.localizedRecoveryOptions
+        let userInfo:AnyObject? = error.userInfo
+        
         printErrorMessage(String(format:"Description: %@\nFailureReason: %@\nRecoverySuggestion: %@\nRecoveryOptions: %@\nCode: %zd\nDomain: %@\nUserInfo: %@",
             error.localizedDescription,
-            error.localizedFailureReason!,
-            error.localizedRecoveryOptions!,
-            error.localizedRecoverySuggestion!,
-            error.localizedRecoveryOptions!,
+            error.localizedFailureReason == nil ? "" : error.localizedDescription,
+            (error.localizedRecoverySuggestion == nil ? "" : error.localizedRecoverySuggestion)!,
+            localizedRecoveryOptions == nil ? "" : localizedRecoveryOptions as! String,
             error.code,
             error.domain,
-            error.userInfo!), location: location);
+            userInfo == nil ? "" : userInfo as! NSDictionary), location: location);
     }
     
     public class func printException(exception: NSException!, location: WHERE)

@@ -30,7 +30,7 @@ KVLhelpers library is a set of useful extensions to popular classes and other ut
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
-  s.source_files = 'KVLHelpers/Classes/*'
+  s.source_files = 'KVLHelpers/KVLHelpers/**/*'
 
 
 #s.resource_bundles = {

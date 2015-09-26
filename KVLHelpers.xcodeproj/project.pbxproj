@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C605A2FD1BAF18E100BE47FC /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F61BAF18E100BE47FC /* KVLLogger.swift */; };
-		C605A2FE1BAF18E100BE47FC /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */; };
-		C605A2FF1BAF18E100BE47FC /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */; };
-		C605A3001BAF18E100BE47FC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */; };
-		C605A3011BAF18E100BE47FC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */; };
-		C605A3021BAF18E100BE47FC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */; };
 		C605A3371BAF1F9600BE47FC /* KVLHelpers.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */; };
 		C605A33A1BAF1F9A00BE47FC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C605A3381BAF1F9A00BE47FC /* LICENSE */; };
 		C605A33B1BAF1F9A00BE47FC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C605A3391BAF1F9A00BE47FC /* README.md */; };
+		C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334B1BB6812C003D93D2 /* KVLLogger.swift */; };
+		C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */; };
+		C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */; };
+		C61033551BB6812C003D93D2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334F1BB6812C003D93D2 /* String+Extensions.swift */; };
+		C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61033501BB6812C003D93D2 /* UIColor+Extension.swift */; };
+		C61033571BB6812C003D93D2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61033511BB6812C003D93D2 /* UIView+Extension.swift */; };
 		C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */; };
 		C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A81BAD6AE8005786AF /* ViewController.swift */; };
 		C6EE15AC1BAD6AE8005786AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AA1BAD6AE8005786AF /* Main.storyboard */; };
@@ -36,15 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C605A2F61BAF18E100BE47FC /* KVLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLLogger.swift; sourceTree = "<group>"; };
-		C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339Extention.swift"; sourceTree = "<group>"; };
-		C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
-		C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KVLHelpers.podspec; sourceTree = "<group>"; };
 		C605A3381BAF1F9A00BE47FC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C605A3391BAF1F9A00BE47FC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C610334B1BB6812C003D93D2 /* KVLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLLogger.swift; sourceTree = "<group>"; };
+		C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339Extention.swift"; sourceTree = "<group>"; };
+		C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
+		C610334F1BB6812C003D93D2 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		C61033501BB6812C003D93D2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C61033511BB6812C003D93D2 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVLHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EE15A51BAD6AE8005786AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,33 +79,10 @@
 		C605A2E61BAF140200BE47FC /* KVLHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				C605A2F51BAF18E100BE47FC /* Classes */,
-				C605A2F71BAF18E100BE47FC /* Extensions */,
+				C61033491BB6812C003D93D2 /* KVLHelpers */,
 			);
 			name = KVLHelpers;
 			path = ../KVLHelpers;
-			sourceTree = "<group>";
-		};
-		C605A2F51BAF18E100BE47FC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C605A2F61BAF18E100BE47FC /* KVLLogger.swift */,
-			);
-			name = Classes;
-			path = KVLHelpers/Classes;
-			sourceTree = "<group>";
-		};
-		C605A2F71BAF18E100BE47FC /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */,
-				C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */,
-				C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */,
-				C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */,
-				C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */,
-			);
-			name = Extensions;
-			path = KVLHelpers/Extensions;
 			sourceTree = "<group>";
 		};
 		C605A3351BAF1F7600BE47FC /* Spec */ = {
@@ -116,6 +93,36 @@
 				C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */,
 			);
 			name = Spec;
+			sourceTree = "<group>";
+		};
+		C61033491BB6812C003D93D2 /* KVLHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				C610334A1BB6812C003D93D2 /* Classes */,
+				C610334C1BB6812C003D93D2 /* Extensions */,
+			);
+			name = KVLHelpers;
+			path = KVLHelpers/KVLHelpers;
+			sourceTree = "<group>";
+		};
+		C610334A1BB6812C003D93D2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C610334B1BB6812C003D93D2 /* KVLLogger.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C610334C1BB6812C003D93D2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */,
+				C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */,
+				C610334F1BB6812C003D93D2 /* String+Extensions.swift */,
+				C61033501BB6812C003D93D2 /* UIColor+Extension.swift */,
+				C61033511BB6812C003D93D2 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C6EE15981BAD6AE8005786AF = {
@@ -279,15 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C605A3011BAF18E100BE47FC /* UIColor+Extension.swift in Sources */,
-				C605A2FD1BAF18E100BE47FC /* KVLLogger.swift in Sources */,
-				C605A3021BAF18E100BE47FC /* UIView+Extension.swift in Sources */,
-				C605A2FE1BAF18E100BE47FC /* NSDate+RFC3339Extention.swift in Sources */,
+				C61033551BB6812C003D93D2 /* String+Extensions.swift in Sources */,
+				C61033571BB6812C003D93D2 /* UIView+Extension.swift in Sources */,
+				C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */,
 				C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */,
-				C605A3001BAF18E100BE47FC /* String+Extensions.swift in Sources */,
+				C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */,
 				C605A33B1BAF1F9A00BE47FC /* README.md in Sources */,
-				C605A2FF1BAF18E100BE47FC /* NSDictionary+Extensions.swift in Sources */,
+				C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */,
 				C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */,
+				C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
