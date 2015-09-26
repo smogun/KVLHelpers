@@ -30,15 +30,8 @@ KVLhelpers library is a set of useful extensions to popular classes and other ut
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
-#s.source_files = 'KVLHelpers/Classes/*'
+  s.source_files = 'KVLHelpers/Classes/*'
 
-s.subspec 'Classes' do |ss|
-    ss.source_files = 'KVLHelpers/Classes/*'
-end
-
-s.subspec 'Extensions' do |ss|
-    ss.source_files = 'KVLHelpers/Extensions/*'
-end
 
 #s.resource_bundles = {
 #    'KVLHelpers' => ['Pod/Assets/*.png']

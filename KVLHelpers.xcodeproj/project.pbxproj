@@ -10,7 +10,7 @@
 		C605A2FD1BAF18E100BE47FC /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F61BAF18E100BE47FC /* KVLLogger.swift */; };
 		C605A2FE1BAF18E100BE47FC /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */; };
 		C605A2FF1BAF18E100BE47FC /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */; };
-		C605A3001BAF18E100BE47FC /* NSString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FA1BAF18E100BE47FC /* NSString+Extensions.swift */; };
+		C605A3001BAF18E100BE47FC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */; };
 		C605A3011BAF18E100BE47FC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */; };
 		C605A3021BAF18E100BE47FC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */; };
 		C605A3371BAF1F9600BE47FC /* KVLHelpers.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */; };
@@ -39,7 +39,7 @@
 		C605A2F61BAF18E100BE47FC /* KVLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLLogger.swift; sourceTree = "<group>"; };
 		C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339Extention.swift"; sourceTree = "<group>"; };
 		C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
-		C605A2FA1BAF18E100BE47FC /* NSString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Extensions.swift"; sourceTree = "<group>"; };
+		C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KVLHelpers.podspec; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			children = (
 				C605A2F81BAF18E100BE47FC /* NSDate+RFC3339Extention.swift */,
 				C605A2F91BAF18E100BE47FC /* NSDictionary+Extensions.swift */,
-				C605A2FA1BAF18E100BE47FC /* NSString+Extensions.swift */,
+				C605A2FA1BAF18E100BE47FC /* String+Extensions.swift */,
 				C605A2FB1BAF18E100BE47FC /* UIColor+Extension.swift */,
 				C605A2FC1BAF18E100BE47FC /* UIView+Extension.swift */,
 			);
@@ -284,7 +284,7 @@
 				C605A3021BAF18E100BE47FC /* UIView+Extension.swift in Sources */,
 				C605A2FE1BAF18E100BE47FC /* NSDate+RFC3339Extention.swift in Sources */,
 				C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */,
-				C605A3001BAF18E100BE47FC /* NSString+Extensions.swift in Sources */,
+				C605A3001BAF18E100BE47FC /* String+Extensions.swift in Sources */,
 				C605A33B1BAF1F9A00BE47FC /* README.md in Sources */,
 				C605A2FF1BAF18E100BE47FC /* NSDictionary+Extensions.swift in Sources */,
 				C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */,
