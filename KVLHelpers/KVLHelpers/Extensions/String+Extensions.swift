@@ -10,5 +10,25 @@ import Foundation
 
 public extension String
 {
-    public var length: Int { return count(self) }
+    public var length: Int { return self.characters.count }
+    
+    public var pathExtension: String?
+    {
+        return NSURL(fileURLWithPath: self).pathExtension;
+    }
+    public var lastPathComponent: String?
+    {
+        return NSURL(fileURLWithPath: self).lastPathComponent;
+    }
+    public var stringByDeletingPathExtension: String?
+    {
+        do
+        {
+            return try String(contentsOfURL: NSURL(fileURLWithPath: self).URLByDeletingPathExtension!);
+        }
+        catch
+        {
+            return self;
+        }
+    }
 }
