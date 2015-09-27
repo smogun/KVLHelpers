@@ -23,8 +23,11 @@
     
     [KVLLogger printSuccessMessage:@"Yay this works!" location:GetCodeLocation];
     
-    UIColor *color = RandomColor;
+    [KVLLogger printSuccessMessage:@"Yay this also works!" location:GetCodeLocation];
     
+    [KVLLogger printSuccessMessage:@"Yay this works as expected!" location:GetCodeLocation];
+    
+    UIColor *color = RandomColor;
     
     return YES;
 }
