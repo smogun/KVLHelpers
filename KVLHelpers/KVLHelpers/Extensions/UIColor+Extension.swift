@@ -11,16 +11,18 @@ import UIKit
 /****************************************************************************************/
 public func RandomColor() -> UIColor
 {
-    return UIColor(r: (CGFloat)(random() % 255), g: (CGFloat)(random() % 255), b: (CGFloat)(random() % 255), a: CGFloat(0.7))
+    return UIColor.RGBA((CGFloat)(random() % 255), g: (CGFloat)(random() % 255), b: (CGFloat)(random() % 255), a: CGFloat(0.7))
 }
 
 
 public extension UIColor
 {
-    public convenience init( r: CGFloat,  g: CGFloat,  b: CGFloat,  a: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
+    public class func RGBA(r: CGFloat,  g: CGFloat,  b: CGFloat,  a: CGFloat) -> UIColor
+    {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
-    public convenience init( r: CGFloat,  g: CGFloat,  b: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+    public class func RGB(r: CGFloat,  g: CGFloat,  b: CGFloat) -> UIColor
+    {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
     }
 }

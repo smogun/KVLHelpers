@@ -21,7 +21,11 @@
     // Override point for customization after application launch.
 
     
-    [KVLLogger printSuccessMessage:@"Yay this works!" location:@"here"];
+    [KVLLogger printSuccessMessage:@"Yay this works!" location:GetCodeLocation];
+    
+    UIColor *color = RandomColor;
+    
+    
     return YES;
 }
 
