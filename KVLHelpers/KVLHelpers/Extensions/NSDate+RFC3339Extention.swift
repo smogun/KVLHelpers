@@ -38,36 +38,49 @@ public extension NSDate
     // all possible RFC 3339 date time strings, just some of the most common
     // styles.
     @objc
-    public class func userVisibleDateFromRFC3339DateTimeString(rfc3339DateTimeString: String!) -> NSDate?
+    public class func userVisibleDateFromRFC3339DateTimeString(rfc3339DateTimeString: String?) -> NSDate?
     {
-        let format1Date = getRFC3339DateFormatter(RFC3339DateFormat1).dateFromString(rfc3339DateTimeString);
+        if (rfc3339DateTimeString == nil)
+        {
+            return nil;
+        }
+        let format1Date = getRFC3339DateFormatter(RFC3339DateFormat1).dateFromString(rfc3339DateTimeString!);
         if (format1Date != nil)
         {
             return format1Date
         }
         
-        let format2Date = getRFC3339DateFormatter(RFC3339DateFormat2).dateFromString(rfc3339DateTimeString);
+        let format2Date = getRFC3339DateFormatter(RFC3339DateFormat2).dateFromString(rfc3339DateTimeString!);
         if (format2Date != nil)
         {
             return format2Date
         }
-        return getRFC3339DateFormatter(RFC3339DateFormat3).dateFromString(rfc3339DateTimeString);
+        return getRFC3339DateFormatter(RFC3339DateFormat3).dateFromString(rfc3339DateTimeString!);
     }
     
     
     
     
     @objc
-    public class func userVisibleDateTimeStringForRFC3339FromDate(date: NSDate!) -> String!
+    public class func userVisibleDateTimeStringForRFC3339FromDate(date: NSDate?) -> String?
     {
-        return getRFC3339DateFormatter(RFC3339DateFormat1).stringFromDate(date)
+        if (date == nil)
+        {
+            return nil;
+        }
+        return getRFC3339DateFormatter(RFC3339DateFormat1).stringFromDate(date!)
     }
     
     
     
     @objc
-    public class func userVisibleStringForRFC3339FromCurrentDate() -> String!
+    public class func userVisibleStringForRFC3339FromCurrentDate() -> String?
     {
-        return NSDate.userVisibleDateTimeStringForRFC3339FromDate(NSDate())
+        let currentDate: NSDate? = NSDate();
+        if (currentDate == nil)
+        {
+            return nil;
+        }
+        return NSDate.userVisibleDateTimeStringForRFC3339FromDate(currentDate!)
     }
 }
