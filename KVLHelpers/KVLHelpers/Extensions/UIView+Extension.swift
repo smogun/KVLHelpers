@@ -10,12 +10,41 @@ import UIKit
 
 public extension UIView
 {
+    /**
+    * Shortcut for frame.origin
+    */
     public var origin:CGPoint{get{return self.frame.origin}}
+    
+    
+    
+    
+    /**
+    * Shortcut for frame.size
+    */
     public var size:CGSize{get{return self.frame.size}}
     
+    
+    
+    
+    /**
+    * Shortcut for frame.origin.x + width
+    */
     public var endX:CGFloat{get{return self.frame.origin.x + self.frame.size.width}}
+    
+    
+    
+    
+    /**
+    * Shortcut for frame.origin.y + frame.size.height
+    */
     public var endY:CGFloat{get{return self.frame.origin.y + self.frame.size.height}}
     
+    
+    
+    
+    /**
+    * Shortcut to add subview at center of view
+    */
     public func addSubviewAtCenter(subView: UIView?)
     {
         if (subView == nil)
@@ -30,7 +59,13 @@ public extension UIView
         self.addSubview(subView!);
     }
     
-    public func addSubviewAtCenterHorizontally(subView: UIView?, originY: CGFloat?)
+    
+    
+    
+    /**
+    * Shortcut to add subview at center of view horizontally
+    */
+    public func addSubviewAtCenterHorizontally(subView: UIView?, originY: CGFloat)
     {
         if (subView == nil)
         {
@@ -39,7 +74,7 @@ public extension UIView
         
         var subViewFrame = subView!.frame;
         subViewFrame.origin.x = self.size.width / 2 - subViewFrame.size.width / 2;
-        subViewFrame.origin.y = originY == nil ? 0.0 : originY!;
+        subViewFrame.origin.y = originY;
         subView!.frame = subViewFrame;
         self.addSubview(subView!);
     }
