@@ -49,46 +49,46 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testValidFetchFromDictionary()
     {
-        let integer = dict.GetNumber(integerKey).integerValue
+        let integer = dict.getNumber(integerKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == integerValue, "Incorrect value")
         
-        let double = dict.GetNumber(doubleKey).doubleValue
+        let double = dict.getNumber(doubleKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == doubleValue, "Incorrect value")
         
-        let boolean = dict.GetNumber(booleanKey).boolValue
+        let boolean = dict.getNumber(booleanKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == booleanValue, "Incorrect value")
         
-        let string = dict.GetString(stringKey)
+        let string = dict.getString(stringKey)
         XCTAssertNotNil(string, "Must not be nil")
         XCTAssert(string == stringValue, "Incorrect value")
         
-        let dictionary = dict.GetDict(dictionaryKey)
+        let dictionary = dict.getDict(dictionaryKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
         XCTAssert(dictionary == dictionaryValue, "Incorrect value")
     }
     
     func testInValidFetchFromDictionary()
     {
-        let integer = dict.GetNumber(dictionaryKey).integerValue
+        let integer = dict.getNumber(dictionaryKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetNumber(dictionaryKey).doubleValue
+        let double = dict.getNumber(dictionaryKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetNumber(dictionaryKey).boolValue
+        let boolean = dict.getNumber(dictionaryKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         
-        let string = dict.GetString(dictionaryKey)
+        let string = dict.getString(dictionaryKey)
         XCTAssertNotNil(string, "Must not be nil")
         XCTAssert(string.length == 0, "Has to be empty")
         
-        let dictionary = dict.GetDict(stringKey)
+        let dictionary = dict.getDict(stringKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
         XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
     }
@@ -96,23 +96,23 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     func testMissingObjectsInDictionary()
     {
         let nonExistantValueKey = "bla bla bla"
-        let integer = dict.GetNumber(nonExistantValueKey).integerValue
+        let integer = dict.getNumber(nonExistantValueKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetNumber(nonExistantValueKey).doubleValue
+        let double = dict.getNumber(nonExistantValueKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetNumber(nonExistantValueKey).boolValue
+        let boolean = dict.getNumber(nonExistantValueKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         
-        let string = dict.GetString(nonExistantValueKey)
+        let string = dict.getString(nonExistantValueKey)
         XCTAssertNotNil(string, "Must not be nil")
         XCTAssert(string.length == 0, "Has to be empty")
         
-        let dictionary = dict.GetDict(nonExistantValueKey)
+        let dictionary = dict.getDict(nonExistantValueKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
         XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
     }
@@ -121,23 +121,23 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testNSNullObjectsInDictionary()
     {
-        let integer = dict.GetNumber(nsNullKey).integerValue
+        let integer = dict.getNumber(nsNullKey).integerValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
-        let double = dict.GetNumber(nsNullKey).doubleValue
+        let double = dict.getNumber(nsNullKey).doubleValue
         XCTAssertNotNil(double, "Must not be nil")
         XCTAssert(double == 0.0, "Has to be 0.0")
         
-        let boolean = dict.GetNumber(nsNullKey).boolValue
+        let boolean = dict.getNumber(nsNullKey).boolValue
         XCTAssertNotNil(boolean, "Must not be nil")
         XCTAssert(boolean == false, "Has to be false")
         
-        let string = dict.GetString(nsNullKey)
+        let string = dict.getString(nsNullKey)
         XCTAssertNotNil(string, "Must not be nil")
         XCTAssert(string.length == 0, "Has to be empty")
         
-        let dictionary = dict.GetDict(nsNullKey)
+        let dictionary = dict.getDict(nsNullKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
         XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
     }

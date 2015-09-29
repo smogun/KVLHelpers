@@ -11,7 +11,7 @@ import Foundation
 public extension NSDictionary
 {
     /****************************************************************************************/
-    public func GetString(key: String!) -> String!
+    public func getString(key: String!) -> String!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -30,7 +30,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func GetNumber(key: String!) -> NSNumber!
+    public func getNumber(key: String!) -> NSNumber!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -50,7 +50,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func GetArray(key: String!) -> NSArray!
+    public func getArray(key: String!) -> NSArray!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -70,7 +70,7 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func GetDict(key: String!) -> NSDictionary!
+    public func getDict(key: String!) -> NSDictionary!
     {
         let value: AnyObject? =  valueForKey(key)
         if (value == nil)
@@ -86,5 +86,4 @@ public extension NSDictionary
         
         return value as! NSDictionary
     }
-    
 }
