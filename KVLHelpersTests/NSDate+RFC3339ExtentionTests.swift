@@ -79,7 +79,7 @@ class NSDate_RFC3339Extention: XCTestCase {
         let test4String = NSDate.userVisibleStringForRFC3339FromCurrentDate()
         let test4Date: NSDate? = NSDate.userVisibleDateFromRFC3339DateTimeString(test4String)
         let test4StringFromDate:String? = NSDate.userVisibleDateTimeStringForRFC3339FromDate(test4Date)
-        XCTAssertNotNil(test4StringFromDate, String(format: "Failed to parse RFC3339 date to string: \"%@\"", test4String))
-        XCTAssert(test4StringFromDate!.length > 0, String(format: "Failed to parse RFC3339 date to string: \"%@\"", test4String))
+        XCTAssertNotNil(test4StringFromDate, String(format: "Failed to parse RFC3339 date to string: \"%@\"", test4String!))
+        XCTAssert(test4StringFromDate!.length > 0, String(format: "Failed to parse RFC3339 date to string: \"%@\"", test4String!))
     }
 }
