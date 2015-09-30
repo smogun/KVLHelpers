@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        KVLLogger.printSuccessMessage("Successfully loaded view of \"ViewController\"", location: GetCodeLocation())
+        KVLLogger.printWarningMessage("Just a warning test", location: GetCodeLocation())
+        KVLLogger.printErrorMessage("Just an error test", location: GetCodeLocation())
         return true
     }
 

@@ -38,6 +38,11 @@ public class KVLLogger: NSObject
         printLogMessage("⛔️ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
+    public class func printWarningMessage(message: String?, location: WHERE?)
+    {
+        printLogMessage("⚠️ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
+    }
+    
     public class func printSuccessMessage(message: String?, location: WHERE?)
     {
         printLogMessage("✅ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
