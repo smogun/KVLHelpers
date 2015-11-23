@@ -43,6 +43,28 @@ public extension UIView
     
     
     /**
+    * Shortcut to change frame's width
+    */
+    public func changeWidth(newWidth: CGFloat)
+    {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newWidth, self.frame.size.height);
+    }
+    
+    
+    
+    
+    /**
+    * Shortcut to change frame's height
+    */
+    public func changeHeight(newHeight: CGFloat)
+    {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, newHeight);
+    }
+    
+    
+    
+    
+    /**
     * Shortcut to add subview at center of view
     */
     public func addSubviewAtCenter(subView: UIView?)
@@ -77,5 +99,19 @@ public extension UIView
         subViewFrame.origin.y = originY;
         subView!.frame = subViewFrame;
         self.addSubview(subView!);
+    }
+    
+    
+    
+    
+    /**
+    * Rotate view by degrees
+    */
+    public func rotateByDegrees(degrees: CGFloat?)
+    {
+        if (degrees != nil)
+        {
+            self.transform = CGAffineTransformMakeRotation(degrees! / CGFloat(180.0) * CGFloat(M_PI));
+        }
     }
 }

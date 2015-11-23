@@ -11,7 +11,7 @@ import UIKit
 /****************************************************************************************/
 public func RandomColor() -> UIColor
 {
-    return UIColor.RGBA((CGFloat)(random() % 255), g: (CGFloat)(random() % 255), b: (CGFloat)(random() % 255), a: CGFloat(0.7))
+    return UIColor.RGBA((CGFloat)(arc4random_uniform(255)), g: (CGFloat)(arc4random_uniform(255)), b: (CGFloat)(arc4random_uniform(255)), a: CGFloat(0.7))
 }
 
 
