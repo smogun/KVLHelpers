@@ -21,7 +21,7 @@ public extension NSDictionary
         else
             if (value is String == false)
             {
-                KVLLogger.printWarningMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                //KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
                 return ""
         }
         
@@ -40,7 +40,7 @@ public extension NSDictionary
         else
             if (value is NSNumber == false)
             {
-                KVLLogger.printWarningMessage(String(format: "Tried to fetch \"NSNumber\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                //KVLLogger.printErrorMessage(String(format: "Tried to fetch \"NSNumber\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
                 return NSNumber(integer: 0)
         }
         
@@ -60,7 +60,7 @@ public extension NSDictionary
         else
             if (value is NSArray == false)
             {
-                KVLLogger.printWarningMessage(String(format: "Tried to fetch \"NSArray\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                //KVLLogger.printErrorMessage(String(format: "Tried to fetch \"NSArray\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
                 return NSArray()
         }
         
@@ -80,7 +80,7 @@ public extension NSDictionary
         else
             if (value is NSDictionary == false)
             {
-                KVLLogger.printWarningMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
+                //KVLLogger.printErrorMessage(String(format: "Tried to fetch \"String\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
                 return NSDictionary()
         }
         

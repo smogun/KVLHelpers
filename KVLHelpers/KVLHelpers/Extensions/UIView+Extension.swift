@@ -8,6 +8,15 @@
 
 import UIKit
 
+@objc public enum EntorpolationDirection: Int16
+{
+    case Horizontal = 1
+    case Vertical   = 2
+    case Both       = 3
+}
+
+
+
 public extension UIView
 {
     /**
@@ -45,7 +54,7 @@ public extension UIView
     /**
     * Shortcut to change frame's width
     */
-    public func changeWidth(newWidth: CGFloat)
+    @inline(__always) public func changeWidth(newWidth: CGFloat)
     {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newWidth, self.frame.size.height);
     }
@@ -56,7 +65,7 @@ public extension UIView
     /**
     * Shortcut to change frame's height
     */
-    public func changeHeight(newHeight: CGFloat)
+    @inline(__always) public func changeHeight(newHeight: CGFloat)
     {
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, newHeight);
     }
@@ -113,5 +122,73 @@ public extension UIView
         {
             self.transform = CGAffineTransformMakeRotation(degrees! / CGFloat(180.0) * CGFloat(M_PI));
         }
+    }
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Convert current view to UIImage
+     */
+    public func toImage() -> UIImage?
+    {
+        var imageToReturn: UIImage? = nil;
+        
+        autoreleasepool
+        {
+            UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0);
+            let context:CGContext? = UIGraphicsGetCurrentContext();
+            if (context != nil)
+            {
+                self.layer.renderInContext(context!);
+                imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+            }
+            
+        }
+        return imageToReturn;
+    }
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Add parralax effect
+     */
+    public func addEntorpolation(direction: EntorpolationDirection)
+    {
+        let group = UIMotionEffectGroup();
+        let motionEffects = NSMutableArray();
+        let relativeValue = 20;
+        
+        /* Bot using bitmask in order */
+        if (direction == .Horizontal || direction == .Both)
+        {
+            let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+                type: .TiltAlongHorizontalAxis)
+            horizontalMotionEffect.minimumRelativeValue = -1 * relativeValue
+            horizontalMotionEffect.maximumRelativeValue = relativeValue
+            motionEffects.addObject(horizontalMotionEffect)
+        }
+        
+        
+        if (direction == .Vertical || direction == .Both)
+        {
+            let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+                type: .TiltAlongVerticalAxis)
+            verticalMotionEffect.minimumRelativeValue = -1 * relativeValue
+            verticalMotionEffect.maximumRelativeValue = relativeValue
+            motionEffects.addObject(verticalMotionEffect)
+        }
+        
+        
+        group.motionEffects = motionEffects as NSArray as? [UIMotionEffect];
+        self.addMotionEffect(group);
     }
 }

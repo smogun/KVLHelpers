@@ -29,9 +29,10 @@ public class KVLLogger: NSObject
 {
     public class func printLogMessage(format: String, _ args: CVarArgType...)
     {
-        #if DEBUG
+        /* Enable DEBUG to make it be disabled for release scheme*/
+        //#if DEBUG
             withVaList(args) { NSLogv(format, $0) }
-        #endif
+        //#endif
     }
     public class func printErrorMessage(message: String?, location: WHERE?)
     {
