@@ -15,6 +15,7 @@
 		C61033551BB6812C003D93D2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334F1BB6812C003D93D2 /* String+Extensions.swift */; };
 		C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61033501BB6812C003D93D2 /* UIColor+Extension.swift */; };
 		C61033571BB6812C003D93D2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61033511BB6812C003D93D2 /* UIView+Extension.swift */; };
+		C6DDA8B71CEC43CB00A73C5E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDA8B61CEC43CB00A73C5E /* UIImage+Extension.swift */; };
 		C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */; };
 		C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE15A81BAD6AE8005786AF /* ViewController.swift */; };
 		C6EE15AC1BAD6AE8005786AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6EE15AA1BAD6AE8005786AF /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		C61033501BB6812C003D93D2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C61033511BB6812C003D93D2 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C68409661BB7C2470081A99E /* KVLObjCGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVLObjCGlobalDefines.h; sourceTree = "<group>"; };
+		C6DDA8B61CEC43CB00A73C5E /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C6EE15A11BAD6AE8005786AF /* KVLHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVLHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EE15A51BAD6AE8005786AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6EE15A61BAD6AE8005786AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		C610334C1BB6812C003D93D2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C6DDA8B61CEC43CB00A73C5E /* UIImage+Extension.swift */,
 				C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */,
 				C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */,
 				C610334F1BB6812C003D93D2 /* String+Extensions.swift */,
@@ -299,6 +302,7 @@
 				C61033551BB6812C003D93D2 /* String+Extensions.swift in Sources */,
 				C61033571BB6812C003D93D2 /* UIView+Extension.swift in Sources */,
 				C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */,
+				C6DDA8B71CEC43CB00A73C5E /* UIImage+Extension.swift in Sources */,
 				C6EE15A91BAD6AE8005786AF /* ViewController.swift in Sources */,
 				C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */,
 				C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */,

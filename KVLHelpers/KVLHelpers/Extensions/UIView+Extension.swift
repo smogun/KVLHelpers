@@ -133,28 +133,67 @@ public extension UIView
     /**
      * Convert current view to UIImage
      */
-    public func toImage() -> UIImage?
+    public func toImage(legacy: Bool) -> UIImage?
     {
         var imageToReturn: UIImage? = nil;
         
         autoreleasepool
-        {
-            UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0);
-            let context:CGContext? = UIGraphicsGetCurrentContext();
-            if (context != nil)
             {
-                self.layer.renderInContext(context!);
-                imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-            }
-            
+                UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0);
+                let context:CGContext? = UIGraphicsGetCurrentContext();
+                if (context != nil)
+                {
+                    if (legacy == true)
+                    {
+                        self.layer.renderInContext(context!);
+                    }
+                    else
+                    {
+                        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true);
+                    }
+                    imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                }
+                
         }
         return imageToReturn;
+    }
+    
+    /**
+     * Convert current view to UIImage
+     */
+    public func toImage() -> UIImage?
+    {
+        return self.toImage(true)
     }
     
     
     
     
+    /**
+     * capture specific frame in to UIImage
+     */
+    public func captureRect(rect: CGRect) -> UIImage!
+    {
+        UIGraphicsBeginImageContext(self.frame.size);
+        let context = UIGraphicsGetCurrentContext()
+        if (context == nil)
+        {
+            return UIImage();
+        }
+        self.layer.renderInContext(context!)
+        
+        let screenShot = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        let imageRef = CGImageCreateWithImageInRect(screenShot.CGImage, rect);
+        if (imageRef == nil)
+        {
+            return UIImage();
+        }
+        let screenImage = UIImage(CGImage: imageRef!, scale: screenShot.scale, orientation:.Up)
+        return screenImage;
+        
+    }
     
     
     
