@@ -12,7 +12,7 @@ public typealias WHERE = String
 
 
 /****************************************************************************************/
-public func GetCodeLocation(file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__, col: Int = __COLUMN__) -> WHERE!
+public func GetCodeLocation(file: String = #file, function: String = #function, line: Int = #line, col: Int = #column) -> WHERE!
 {
     return String(format: "%@:%@:(%d,%d)", file.lastPathComponent!.stringByDeletingPathExtension!, function, line, col)
 }
