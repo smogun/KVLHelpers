@@ -185,12 +185,12 @@ public extension UIView
         
         let screenShot = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        let imageRef = CGImageCreateWithImageInRect(screenShot.CGImage, rect);
+        let imageRef = CGImageCreateWithImageInRect(screenShot!.CGImage!, rect);
         if (imageRef == nil)
         {
             return UIImage();
         }
-        let screenImage = UIImage(CGImage: imageRef!, scale: screenShot.scale, orientation:.Up)
+        let screenImage = UIImage(CGImage: imageRef!, scale: screenShot!.scale, orientation:.Up)
         return screenImage;
         
     }

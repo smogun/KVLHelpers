@@ -31,4 +31,19 @@ public extension String
             return self;
         }
     }
+    
+    func toDictionary() -> [NSObject : AnyObject]?
+    {
+        if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
+            do {
+                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
+            } catch let error as NSError {
+                KVLLogger.printError(error, location: GetCodeLocation())
+                
+                return nil
+            }
+        }
+        
+        return nil
+    }
 }

@@ -16,14 +16,14 @@ public extension UIImage {
         let ctx = UIGraphicsGetCurrentContext();
         let area = CGRectMake(0, 0, self.size.width, self.size.height);
         
-        CGContextScaleCTM(ctx, 1, -1);
-        CGContextTranslateCTM(ctx, 0, -area.size.height);
+        CGContextScaleCTM(ctx!, 1, -1);
+        CGContextTranslateCTM(ctx!, 0, -area.size.height);
         
-        CGContextSetBlendMode(ctx, .Multiply);
+        CGContextSetBlendMode(ctx!, .Multiply);
         
-        CGContextSetAlpha(ctx, alpha);
+        CGContextSetAlpha(ctx!, alpha);
         
-        CGContextDrawImage(ctx, area, self.CGImage);
+        CGContextDrawImage(ctx!, area, self.CGImage!);
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         
@@ -45,18 +45,18 @@ public extension UIImage {
         let bitmap = UIGraphicsGetCurrentContext();
         
         // Move the origin to the middle of the image so we will rotate and scale around the center.
-        CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+        CGContextTranslateCTM(bitmap!, rotatedSize.width/2, rotatedSize.height/2);
         
         //   // Rotate the image context
-        CGContextRotateCTM(bitmap, (degrees * CGFloat(M_PI) / CGFloat(180.0)));
+        CGContextRotateCTM(bitmap!, (degrees * CGFloat(M_PI) / CGFloat(180.0)));
         
         // Now, draw the rotated/scaled image into the context
-        CGContextScaleCTM(bitmap, 1.0, -1.0);
-        CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), self.CGImage);
+        CGContextScaleCTM(bitmap!, 1.0, -1.0);
+        CGContextDrawImage(bitmap!, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), self.CGImage!);
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        return newImage;
+        return newImage!;
     }
     
     public static func imageFromColor(color: UIColor!) -> UIImage
@@ -71,12 +71,12 @@ public extension UIImage {
         UIGraphicsBeginImageContext(rect.size);
         let context = UIGraphicsGetCurrentContext();
         
-        CGContextSetFillColorWithColor(context, color.CGColor);
-        CGContextFillRect(context, rect);
+        CGContextSetFillColorWithColor(context!, color.CGColor);
+        CGContextFillRect(context!, rect);
         
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        return image;
+        return image!;
     }
 }

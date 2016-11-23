@@ -10,26 +10,53 @@ import Foundation
 
 public extension NSDate
 {
+    private static var RFC3339DateFormat1 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'" /* This is most common format */
+    private static var RFC3339DateFormat2 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'ms'Z'"
+    private static var RFC3339DateFormat3 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'-'HH':'mm'"
     
-    //This is most common format
-    private static var RFC3339DateFormat1 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
-    private static var RFC3339DateFormat2 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'ms'Z'";
-    private static var RFC3339DateFormat3 = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'-'HH':'mm'";
-    
-    private class func getRFC3339DateFormatter(format: String) -> NSDateFormatter
-    {
+    private static var RFC3339DateFormatter1: NSDateFormatter = {
         let enUSPOSIXLocale: NSLocale? = NSLocale(localeIdentifier: "en_US_POSIX")
         assert(enUSPOSIXLocale != nil, "enUSPOSIXLocale must not be nil")
         
         let dateFormatter:NSDateFormatter? = NSDateFormatter()
         assert(dateFormatter != nil, "dateFormatter must not be nil")
         
-        dateFormatter!.locale = enUSPOSIXLocale;
-        dateFormatter!.dateFormat = format
-        dateFormatter!.timeZone = NSTimeZone(forSecondsFromGMT:0);
+        dateFormatter!.locale = enUSPOSIXLocale
+        dateFormatter!.dateFormat = RFC3339DateFormat1
+        dateFormatter!.timeZone = NSTimeZone(forSecondsFromGMT:0)
         
-        return dateFormatter!;
-    }
+        return dateFormatter!
+    }()
+    
+    
+    private static var RFC3339DateFormatter2: NSDateFormatter = {
+        let enUSPOSIXLocale: NSLocale? = NSLocale(localeIdentifier: "en_US_POSIX")
+        assert(enUSPOSIXLocale != nil, "enUSPOSIXLocale must not be nil")
+        
+        let dateFormatter:NSDateFormatter? = NSDateFormatter()
+        assert(dateFormatter != nil, "dateFormatter must not be nil")
+        
+        dateFormatter!.locale = enUSPOSIXLocale
+        dateFormatter!.dateFormat = RFC3339DateFormat2
+        dateFormatter!.timeZone = NSTimeZone(forSecondsFromGMT:0)
+        
+        return dateFormatter!
+    }()
+    
+    private static var RFC3339DateFormatter3: NSDateFormatter = {
+        let enUSPOSIXLocale: NSLocale? = NSLocale(localeIdentifier: "en_US_POSIX")
+        assert(enUSPOSIXLocale != nil, "enUSPOSIXLocale must not be nil")
+        
+        let dateFormatter:NSDateFormatter? = NSDateFormatter()
+        assert(dateFormatter != nil, "dateFormatter must not be nil")
+        
+        dateFormatter!.locale = enUSPOSIXLocale
+        dateFormatter!.dateFormat = RFC3339DateFormat3
+        dateFormatter!.timeZone = NSTimeZone(forSecondsFromGMT:0)
+        
+        return dateFormatter!
+    }()
+    
     
     
     
@@ -42,20 +69,20 @@ public extension NSDate
     {
         if (rfc3339DateTimeString == nil)
         {
-            return nil;
+            return nil
         }
-        let format1Date = getRFC3339DateFormatter(RFC3339DateFormat1).dateFromString(rfc3339DateTimeString!);
+        let format1Date = RFC3339DateFormatter1.dateFromString(rfc3339DateTimeString!)
         if (format1Date != nil)
         {
             return format1Date
         }
         
-        let format2Date = getRFC3339DateFormatter(RFC3339DateFormat2).dateFromString(rfc3339DateTimeString!);
+        let format2Date = RFC3339DateFormatter2.dateFromString(rfc3339DateTimeString!)
         if (format2Date != nil)
         {
             return format2Date
         }
-        return getRFC3339DateFormatter(RFC3339DateFormat3).dateFromString(rfc3339DateTimeString!);
+        return RFC3339DateFormatter3.dateFromString(rfc3339DateTimeString!)
     }
     
     
@@ -66,9 +93,9 @@ public extension NSDate
     {
         if (date == nil)
         {
-            return nil;
+            return nil
         }
-        return getRFC3339DateFormatter(RFC3339DateFormat1).stringFromDate(date!)
+        return RFC3339DateFormatter1.stringFromDate(date!)
     }
     
     
@@ -76,10 +103,10 @@ public extension NSDate
     @objc
     public class func userVisibleStringForRFC3339FromCurrentDate() -> String?
     {
-        let currentDate: NSDate? = NSDate();
+        let currentDate: NSDate? = NSDate()
         if (currentDate == nil)
         {
-            return nil;
+            return nil
         }
         return NSDate.userVisibleDateTimeStringForRFC3339FromDate(currentDate!)
     }

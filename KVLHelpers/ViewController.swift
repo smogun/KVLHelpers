@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     {
         view.backgroundColor = RandomColor()
         
-        let colorComponents = CGColorGetComponents(self.view.backgroundColor?.CGColor);
+        let colorComponents = CGColorGetComponents((self.view.backgroundColor?.CGColor)!);
         let red     = colorComponents[0];
         let green   = colorComponents[1];
         let blue    = colorComponents[2];
