@@ -24,7 +24,7 @@ public extension String
     {
         do
         {
-            return try String(contentsOf: NSURL(fileURLWithPath: self).deletingPathExtension!);
+            return try String(contentsOf: URL(fileURLWithPath: self).deletingPathExtension());
         }
         catch
         {
