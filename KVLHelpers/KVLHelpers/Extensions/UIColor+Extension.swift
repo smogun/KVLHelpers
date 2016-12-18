@@ -17,11 +17,11 @@ public func RandomColor() -> UIColor
 
 public extension UIColor
 {
-    public class func RGBA(r: CGFloat,  g: CGFloat,  b: CGFloat,  a: CGFloat) -> UIColor
+    public class func RGBA(_ r: CGFloat,  g: CGFloat,  b: CGFloat,  a: CGFloat) -> UIColor
     {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
-    public class func RGB(r: CGFloat,  g: CGFloat,  b: CGFloat) -> UIColor
+    public class func RGB(_ r: CGFloat,  g: CGFloat,  b: CGFloat) -> UIColor
     {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
     }

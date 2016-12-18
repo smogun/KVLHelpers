@@ -24,27 +24,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func setBgColorForView(view: UIView)
+    func setBgColorForView(_ view: UIView)
     {
         view.backgroundColor = RandomColor()
         
-        let colorComponents = CGColorGetComponents((self.view.backgroundColor?.CGColor)!);
-        let red     = colorComponents[0];
-        let green   = colorComponents[1];
-        let blue    = colorComponents[2];
-        let alpha   = colorComponents[3];
+        let colorComponents = (self.view.backgroundColor?.cgColor)!.components;
+        let red     = colorComponents?[0];
+        let green   = colorComponents?[1];
+        let blue    = colorComponents?[2];
+        let alpha   = colorComponents?[3];
         
         let colorLabel = UILabel();
         
-        colorLabel.text = String(format:"BGColor: RGBA{%.0f,%.0f,%.0f,%.0f}", red * 255, green * 255, blue * 255, alpha * 255);
+        colorLabel.text = String(format:"BGColor: RGBA{%.0f,%.0f,%.0f,%.0f}", red! * 255, green! * 255, blue! * 255, alpha! * 255);
         colorLabel.adjustsFontSizeToFitWidth = true;
         colorLabel.sizeToFit();
-        colorLabel.textAlignment = .Center;
-        colorLabel.frame = CGRectMake(
-            0,
-            0,
-            view.size.width - 20,
-            colorLabel.size.height);
+        colorLabel.textAlignment = .center;
+        colorLabel.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.size.width - 20,
+            height: colorLabel.size.height);
         
         view.addSubviewAtCenterHorizontally(colorLabel, originY: 20);
     }
@@ -52,16 +52,16 @@ class ViewController: UIViewController {
     func addRotatedViews()
     {
         let viewSize: CGFloat = 150.0;
-        let leftView = UIView(frame: CGRectMake(
-            self.view.size.width / 2 - viewSize,
-            self.view.size.height / 2 - viewSize / 2,
-            viewSize,
-            viewSize))
-        let rightView = UIView(frame: CGRectMake(
-            self.view.size.width / 2,
-            self.view.size.height / 2 - viewSize / 2,
-            viewSize,
-            viewSize))
+        let leftView = UIView(frame: CGRect(
+            x: self.view.size.width / 2 - viewSize,
+            y: self.view.size.height / 2 - viewSize / 2,
+            width: viewSize,
+            height: viewSize))
+        let rightView = UIView(frame: CGRect(
+            x: self.view.size.width / 2,
+            y: self.view.size.height / 2 - viewSize / 2,
+            width: viewSize,
+            height: viewSize))
         
         setBgColorForView(leftView)
         setBgColorForView(rightView)

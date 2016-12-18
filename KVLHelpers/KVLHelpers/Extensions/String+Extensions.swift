@@ -14,17 +14,17 @@ public extension String
     
     public var pathExtension: String?
     {
-        return NSURL(fileURLWithPath: self).pathExtension;
+        return URL(fileURLWithPath: self).pathExtension;
     }
     public var lastPathComponent: String?
     {
-        return NSURL(fileURLWithPath: self).lastPathComponent;
+        return URL(fileURLWithPath: self).lastPathComponent;
     }
     public var stringByDeletingPathExtension: String?
     {
         do
         {
-            return try String(contentsOfURL: NSURL(fileURLWithPath: self).URLByDeletingPathExtension!);
+            return try String(contentsOf: NSURL(fileURLWithPath: self).deletingPathExtension!);
         }
         catch
         {
@@ -32,11 +32,11 @@ public extension String
         }
     }
     
-    func toDictionary() -> [NSObject : AnyObject]?
+    func toDictionary() -> [AnyHashable: Any]?
     {
-        if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
+        if let data = self.data(using: String.Encoding.utf8) {
             do {
-                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
             } catch let error as NSError {
                 KVLLogger.printError(error, location: GetCodeLocation())
                 

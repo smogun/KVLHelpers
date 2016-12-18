@@ -11,9 +11,9 @@ import Foundation
 public extension NSDictionary
 {
     /****************************************************************************************/
-    public func getString(key: String!) -> String!
+    public func getString(_ key: String!) -> String!
     {
-        let value: AnyObject? =  valueForKey(key)
+        let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
         {
             return ""
@@ -30,18 +30,18 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func getNumber(key: String!) -> NSNumber!
+    public func getNumber(_ key: String!) -> NSNumber!
     {
-        let value: AnyObject? =  valueForKey(key)
+        let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
         {
-            return NSNumber(integer: 0)
+            return NSNumber(value: 0 as Int)
         }
         else
             if (value is NSNumber == false)
             {
                 //KVLLogger.printErrorMessage(String(format: "Tried to fetch \"NSNumber\" for key \"%@\" but got type: \"\(value!.dynamicType)\"", key), location: GetCodeLocation())
-                return NSNumber(integer: 0)
+                return NSNumber(value: 0 as Int)
         }
         
         return value as! NSNumber
@@ -50,9 +50,9 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func getArray(key: String!) -> NSArray!
+    public func getArray(_ key: String!) -> NSArray!
     {
-        let value: AnyObject? =  valueForKey(key)
+        let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
         {
             return NSArray()
@@ -70,9 +70,9 @@ public extension NSDictionary
     
     
     /****************************************************************************************/
-    public func getDict(key: String!) -> NSDictionary!
+    public func getDict(_ key: String!) -> NSDictionary!
     {
-        let value: AnyObject? =  valueForKey(key)
+        let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
         {
             return NSDictionary()

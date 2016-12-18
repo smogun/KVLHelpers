@@ -10,9 +10,9 @@ import UIKit
 
 @objc public enum EntorpolationDirection: Int16
 {
-    case Horizontal = 1
-    case Vertical   = 2
-    case Both       = 3
+    case horizontal = 1
+    case vertical   = 2
+    case both       = 3
 }
 
 
@@ -54,9 +54,9 @@ public extension UIView
     /**
     * Shortcut to change frame's width
     */
-    @inline(__always) public func changeWidth(newWidth: CGFloat)
+    @inline(__always) public func changeWidth(_ newWidth: CGFloat)
     {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newWidth, self.frame.size.height);
+        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: newWidth, height: self.frame.size.height);
     }
     
     
@@ -65,9 +65,9 @@ public extension UIView
     /**
     * Shortcut to change frame's height
     */
-    @inline(__always) public func changeHeight(newHeight: CGFloat)
+    @inline(__always) public func changeHeight(_ newHeight: CGFloat)
     {
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, newHeight);
+        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: newHeight);
     }
     
     
@@ -76,7 +76,7 @@ public extension UIView
     /**
     * Shortcut to add subview at center of view
     */
-    public func addSubviewAtCenter(subView: UIView?)
+    public func addSubviewAtCenter(_ subView: UIView?)
     {
         if (subView == nil)
         {
@@ -96,7 +96,7 @@ public extension UIView
     /**
     * Shortcut to add subview at center of view horizontally
     */
-    public func addSubviewAtCenterHorizontally(subView: UIView?, originY: CGFloat)
+    public func addSubviewAtCenterHorizontally(_ subView: UIView?, originY: CGFloat)
     {
         if (subView == nil)
         {
@@ -116,11 +116,11 @@ public extension UIView
     /**
     * Rotate view by degrees
     */
-    public func rotateByDegrees(degrees: CGFloat?)
+    public func rotateByDegrees(_ degrees: CGFloat?)
     {
         if (degrees != nil)
         {
-            self.transform = CGAffineTransformMakeRotation(degrees! / CGFloat(180.0) * CGFloat(M_PI));
+            self.transform = CGAffineTransform(rotationAngle: degrees! / CGFloat(180.0) * CGFloat(M_PI));
         }
     }
     
@@ -133,7 +133,7 @@ public extension UIView
     /**
      * Convert current view to UIImage
      */
-    public func toImage(legacy: Bool) -> UIImage?
+    public func toImage(_ legacy: Bool) -> UIImage?
     {
         var imageToReturn: UIImage? = nil;
         
@@ -145,11 +145,11 @@ public extension UIView
                 {
                     if (legacy == true)
                     {
-                        self.layer.renderInContext(context!);
+                        self.layer.render(in: context!);
                     }
                     else
                     {
-                        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true);
+                        self.drawHierarchy(in: self.bounds, afterScreenUpdates: true);
                     }
                     imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
@@ -173,7 +173,7 @@ public extension UIView
     /**
      * capture specific frame in to UIImage
      */
-    public func captureRect(rect: CGRect) -> UIImage!
+    public func captureRect(_ rect: CGRect) -> UIImage!
     {
         UIGraphicsBeginImageContext(self.frame.size);
         let context = UIGraphicsGetCurrentContext()
@@ -181,16 +181,16 @@ public extension UIView
         {
             return UIImage();
         }
-        self.layer.renderInContext(context!)
+        self.layer.render(in: context!)
         
         let screenShot = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        let imageRef = CGImageCreateWithImageInRect(screenShot!.CGImage!, rect);
+        let imageRef = screenShot!.cgImage!.cropping(to: rect);
         if (imageRef == nil)
         {
             return UIImage();
         }
-        let screenImage = UIImage(CGImage: imageRef!, scale: screenShot!.scale, orientation:.Up)
+        let screenImage = UIImage(cgImage: imageRef!, scale: screenShot!.scale, orientation:.up)
         return screenImage;
         
     }
@@ -200,30 +200,30 @@ public extension UIView
     /**
      * Add parralax effect
      */
-    public func addEntorpolation(direction: EntorpolationDirection)
+    public func addEntorpolation(_ direction: EntorpolationDirection)
     {
         let group = UIMotionEffectGroup();
         let motionEffects = NSMutableArray();
         let relativeValue = 20;
         
         /* Bot using bitmask in order */
-        if (direction == .Horizontal || direction == .Both)
+        if (direction == .horizontal || direction == .both)
         {
             let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
-                type: .TiltAlongHorizontalAxis)
+                type: .tiltAlongHorizontalAxis)
             horizontalMotionEffect.minimumRelativeValue = -1 * relativeValue
             horizontalMotionEffect.maximumRelativeValue = relativeValue
-            motionEffects.addObject(horizontalMotionEffect)
+            motionEffects.add(horizontalMotionEffect)
         }
         
         
-        if (direction == .Vertical || direction == .Both)
+        if (direction == .vertical || direction == .both)
         {
             let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
-                type: .TiltAlongVerticalAxis)
+                type: .tiltAlongVerticalAxis)
             verticalMotionEffect.minimumRelativeValue = -1 * relativeValue
             verticalMotionEffect.maximumRelativeValue = relativeValue
-            motionEffects.addObject(verticalMotionEffect)
+            motionEffects.add(verticalMotionEffect)
         }
         
         

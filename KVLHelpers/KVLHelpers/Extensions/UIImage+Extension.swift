@@ -9,21 +9,21 @@
 import UIKit
 
 public extension UIImage {
-    public func imageByApplyingAlpha(alpha: CGFloat) -> UIImage!
+    public func imageByApplyingAlpha(_ alpha: CGFloat) -> UIImage!
     {        
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0);
         
         let ctx = UIGraphicsGetCurrentContext();
-        let area = CGRectMake(0, 0, self.size.width, self.size.height);
+        let area = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height);
         
-        CGContextScaleCTM(ctx!, 1, -1);
-        CGContextTranslateCTM(ctx!, 0, -area.size.height);
+        ctx!.scaleBy(x: 1, y: -1);
+        ctx!.translateBy(x: 0, y: -area.size.height);
         
-        CGContextSetBlendMode(ctx!, .Multiply);
+        ctx!.setBlendMode(.multiply);
         
-        CGContextSetAlpha(ctx!, alpha);
+        ctx!.setAlpha(alpha);
         
-        CGContextDrawImage(ctx!, area, self.CGImage!);
+        ctx!.draw(self.cgImage!, in: area);
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         
@@ -33,11 +33,11 @@ public extension UIImage {
     }
     
     
-    public func imageRotatedByDegrees(degrees: CGFloat) -> UIImage
+    public func imageRotatedByDegrees(_ degrees: CGFloat) -> UIImage
     {
         // calculate the size of the rotated view's containing box for our drawing space
-        let rotatedViewBox = UIView(frame:CGRectMake(0, 0, self.size.width, self.size.height));
-        let t = CGAffineTransformMakeRotation(degrees * CGFloat(M_PI) / CGFloat(180.0));
+        let rotatedViewBox = UIView(frame:CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height));
+        let t = CGAffineTransform(rotationAngle: degrees * CGFloat(M_PI) / CGFloat(180.0));
         rotatedViewBox.transform = t;
         let rotatedSize = rotatedViewBox.frame.size;
         // Create the bitmap context
@@ -45,34 +45,34 @@ public extension UIImage {
         let bitmap = UIGraphicsGetCurrentContext();
         
         // Move the origin to the middle of the image so we will rotate and scale around the center.
-        CGContextTranslateCTM(bitmap!, rotatedSize.width/2, rotatedSize.height/2);
+        bitmap!.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2);
         
         //   // Rotate the image context
-        CGContextRotateCTM(bitmap!, (degrees * CGFloat(M_PI) / CGFloat(180.0)));
+        bitmap!.rotate(by: (degrees * CGFloat(M_PI) / CGFloat(180.0)));
         
         // Now, draw the rotated/scaled image into the context
-        CGContextScaleCTM(bitmap!, 1.0, -1.0);
-        CGContextDrawImage(bitmap!, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), self.CGImage!);
+        bitmap!.scaleBy(x: 1.0, y: -1.0);
+        bitmap!.draw(self.cgImage!, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height));
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return newImage!;
     }
     
-    public static func imageFromColor(color: UIColor!) -> UIImage
+    public static func imageFromColor(_ color: UIColor!) -> UIImage
     {
-        return UIImage.imageFromColor(color, size:CGSizeMake(1.0, 1.0));
+        return UIImage.imageFromColor(color, size:CGSize(width: 1.0, height: 1.0));
     }
     
     
-    public static func imageFromColor(color: UIColor!, size: CGSize) -> UIImage
+    public static func imageFromColor(_ color: UIColor!, size: CGSize) -> UIImage
     {
-        let rect = CGRectMake(0.0, 0.0, size.width, size.height);
+        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height);
         UIGraphicsBeginImageContext(rect.size);
         let context = UIGraphicsGetCurrentContext();
         
-        CGContextSetFillColorWithColor(context!, color.CGColor);
-        CGContextFillRect(context!, rect);
+        context!.setFillColor(color.cgColor);
+        context!.fill(rect);
         
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

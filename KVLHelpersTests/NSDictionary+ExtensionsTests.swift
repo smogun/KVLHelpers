@@ -11,21 +11,21 @@ import KVLHelpers
 
 class NSDictionary_ExtensionsTests: XCTestCase {
 
-    private var dict: NSDictionary! = NSDictionary()
+    fileprivate var dict: NSDictionary! = NSDictionary()
     
-    private let integerKey      = "integer"
-    private let doubleKey       = "double"
-    private let booleanKey      = "boolean"
-    private let stringKey       = "string"
-    private let dictionaryKey   = "dictionary"
-    private let nsNullKey       = "nsNull"
+    fileprivate let integerKey      = "integer"
+    fileprivate let doubleKey       = "double"
+    fileprivate let booleanKey      = "boolean"
+    fileprivate let stringKey       = "string"
+    fileprivate let dictionaryKey   = "dictionary"
+    fileprivate let nsNullKey       = "nsNull"
     
-    private let integerValue    = 5
-    private let doubleValue     = 2.123
-    private let booleanValue    = true
-    private let stringValue     = "bla bla"
-    private let dictionaryValue = ["one": 1, "two": 2]
-    private let nsNullValue     = NSNull()
+    fileprivate let integerValue    = 5
+    fileprivate let doubleValue     = 2.123
+    fileprivate let booleanValue    = true
+    fileprivate let stringValue     = "bla bla"
+    fileprivate let dictionaryValue = ["one": 1, "two": 2]
+    fileprivate let nsNullValue     = NSNull()
     
     override func setUp() {
         super.setUp()
@@ -49,7 +49,7 @@ class NSDictionary_ExtensionsTests: XCTestCase {
     
     func testValidFetchFromDictionary()
     {
-        let integer = dict.getNumber(integerKey).integerValue
+        let integer = dict.getNumber(integerKey).intValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == integerValue, "Incorrect value")
         
@@ -67,12 +67,12 @@ class NSDictionary_ExtensionsTests: XCTestCase {
         
         let dictionary = dict.getDict(dictionaryKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
-        XCTAssert(dictionary == dictionaryValue, "Incorrect value")
+        XCTAssert(dictionary as! [String : Int] == dictionaryValue, "Incorrect value")
     }
     
     func testInValidFetchFromDictionary()
     {
-        let integer = dict.getNumber(dictionaryKey).integerValue
+        let integer = dict.getNumber(dictionaryKey).intValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
@@ -86,17 +86,17 @@ class NSDictionary_ExtensionsTests: XCTestCase {
         
         let string = dict.getString(dictionaryKey)
         XCTAssertNotNil(string, "Must not be nil")
-        XCTAssert(string.length == 0, "Has to be empty")
+        XCTAssert(string!.length == 0, "Has to be empty")
         
         let dictionary = dict.getDict(stringKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
-        XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
+        XCTAssert(dictionary!.allKeys.count == 0, "Has to be empty")
     }
     
     func testMissingObjectsInDictionary()
     {
         let nonExistantValueKey = "bla bla bla"
-        let integer = dict.getNumber(nonExistantValueKey).integerValue
+        let integer = dict.getNumber(nonExistantValueKey).intValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
@@ -110,18 +110,18 @@ class NSDictionary_ExtensionsTests: XCTestCase {
         
         let string = dict.getString(nonExistantValueKey)
         XCTAssertNotNil(string, "Must not be nil")
-        XCTAssert(string.length == 0, "Has to be empty")
+        XCTAssert(string!.length == 0, "Has to be empty")
         
         let dictionary = dict.getDict(nonExistantValueKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
-        XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
+        XCTAssert(dictionary!.allKeys.count == 0, "Has to be empty")
     }
     
     
     
     func testNSNullObjectsInDictionary()
     {
-        let integer = dict.getNumber(nsNullKey).integerValue
+        let integer = dict.getNumber(nsNullKey).intValue
         XCTAssertNotNil(integer, "Must not be nil")
         XCTAssert(integer == 0, "Has to be 0")
         
@@ -135,10 +135,10 @@ class NSDictionary_ExtensionsTests: XCTestCase {
         
         let string = dict.getString(nsNullKey)
         XCTAssertNotNil(string, "Must not be nil")
-        XCTAssert(string.length == 0, "Has to be empty")
+        XCTAssert(string!.length == 0, "Has to be empty")
         
         let dictionary = dict.getDict(nsNullKey)
         XCTAssertNotNil(dictionary, "Must not be nil")
-        XCTAssert(dictionary.allKeys.count == 0, "Has to be empty")
+        XCTAssert(dictionary!.allKeys.count == 0, "Has to be empty")
     }
 }

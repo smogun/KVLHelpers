@@ -12,7 +12,7 @@ public typealias WHERE = String
 
 
 /****************************************************************************************/
-public func GetCodeLocation(file: String = #file, function: String = #function, line: Int = #line, col: Int = #column) -> WHERE!
+public func GetCodeLocation(_ file: String = #file, function: String = #function, line: Int = #line, col: Int = #column) -> WHERE!
 {
     return String(format: "%@:%@:(%d,%d)", file.lastPathComponent!.stringByDeletingPathExtension!, function, line, col)
 }
@@ -25,44 +25,44 @@ If installed from pods, this has to be done in POD target:
 Since POD target is being assembled by pod install, pod file has to include "post_install" script (see example projects).
 */
 @objc
-public class KVLLogger: NSObject
+open class KVLLogger: NSObject
 {
-    public class func printLogMessage(format: String, _ args: CVarArgType...)
+    open class func printLogMessage(_ format: String, _ args: CVarArg...)
     {
         /* Enable DEBUG to make it be disabled for release scheme*/
         //#if DEBUG
             withVaList(args) { NSLogv(format, $0) }
         //#endif
     }
-    public class func printErrorMessage(message: String?, location: WHERE?)
+    open class func printErrorMessage(_ message: String?, location: WHERE?)
     {
         printLogMessage("⛔️ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printWarningMessage(message: String?, location: WHERE?)
+    open class func printWarningMessage(_ message: String?, location: WHERE?)
     {
         printLogMessage("⚠️ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printSuccessMessage(message: String?, location: WHERE?)
+    open class func printSuccessMessage(_ message: String?, location: WHERE?)
     {
         printLogMessage("✅ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printNormalMessage(message: String?, location: WHERE?)
+    open class func printNormalMessage(_ message: String?, location: WHERE?)
     {
         printLogMessage("➕ %@ >>> %@", location == nil ? "" : location!, message == nil ? "" : message!)
     }
     
-    public class func printError(error: NSError?, location: WHERE?)
+    open class func printError(_ error: NSError?, location: WHERE?)
     {
         if (error == nil)
         {
             return;
         }
         
-        let localizedRecoveryOptions:AnyObject? = error!.localizedRecoveryOptions
-        let userInfo:AnyObject? = error!.userInfo
+        let localizedRecoveryOptions:AnyObject? = error!.localizedRecoveryOptions as AnyObject?
+        let userInfo:AnyObject? = error!.userInfo as AnyObject?
         
         printErrorMessage(String(format:"Description: %@\nFailureReason: %@\nRecoverySuggestion: %@\nRecoveryOptions: %@\nCode: %zd\nDomain: %@\nUserInfo: %@",
             error!.localizedDescription,
@@ -74,14 +74,14 @@ public class KVLLogger: NSObject
             userInfo == nil ? "" : userInfo as! NSDictionary), location: location == nil ? "" : location!);
     }
     
-    public class func printException(exception: NSException?, location: WHERE?)
+    open class func printException(_ exception: NSException?, location: WHERE?)
     {
         if (exception == nil)
         {
             return;
         }
         printErrorMessage(String(format:"Name: %@\nReason: %@, stackTrace:%@",
-            exception!.name,
+            exception!.name as CVarArg,
             exception!.reason!,
             exception!.callStackSymbols), location: location == nil ? "" : location!);
     }
