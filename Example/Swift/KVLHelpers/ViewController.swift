@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KVLHelpers
 
 class ViewController: UIViewController {
 
@@ -16,7 +15,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        KVLLogger.printSuccessMessage("Successfully loaded view of \"ViewController\"", location: GetCodeLocation())
     }
 
     override func didReceiveMemoryWarning() {

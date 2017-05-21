@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 @import KVLHelpers;
+@import KVLLogger;
 
 @interface AppDelegate ()
 

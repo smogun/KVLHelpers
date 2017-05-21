@@ -37,7 +37,7 @@ public extension UIImage {
     {
         // calculate the size of the rotated view's containing box for our drawing space
         let rotatedViewBox = UIView(frame:CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height));
-        let t = CGAffineTransform(rotationAngle: degrees * CGFloat(M_PI) / CGFloat(180.0));
+        let t = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / CGFloat(180.0));
         rotatedViewBox.transform = t;
         let rotatedSize = rotatedViewBox.frame.size;
         // Create the bitmap context
@@ -48,7 +48,7 @@ public extension UIImage {
         bitmap!.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2);
         
         //   // Rotate the image context
-        bitmap!.rotate(by: (degrees * CGFloat(M_PI) / CGFloat(180.0)));
+        bitmap!.rotate(by: (degrees * CGFloat.pi / CGFloat(180.0)));
         
         // Now, draw the rotated/scaled image into the context
         bitmap!.scaleBy(x: 1.0, y: -1.0);

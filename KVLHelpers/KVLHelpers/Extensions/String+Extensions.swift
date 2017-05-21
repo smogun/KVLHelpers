@@ -38,7 +38,18 @@ public extension String
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
             } catch let error as NSError {
-                KVLLogger.printError(error, location: GetCodeLocation())
+                
+                let localizedRecoveryOptions:AnyObject? = error.localizedRecoveryOptions as AnyObject?
+                let userInfo:AnyObject? = error.userInfo as AnyObject?
+                
+                print(String(format:"Description: %@\nFailureReason: %@\nRecoverySuggestion: %@\nRecoveryOptions: %@\nCode: %zd\nDomain: %@\nUserInfo: %@",
+                       error.localizedDescription,
+                       error.localizedFailureReason == nil ? "" : error.localizedDescription,
+                       (error.localizedRecoverySuggestion == nil ? "" : error.localizedRecoverySuggestion)!,
+                       localizedRecoveryOptions == nil ? "" : localizedRecoveryOptions as! String,
+                       error.code,
+                       error.domain,
+                       userInfo == nil ? "" : userInfo as! NSDictionary))
                 
                 return nil
             }

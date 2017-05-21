@@ -116,12 +116,9 @@ public extension UIView
     /**
     * Rotate view by degrees
     */
-    public func rotateByDegrees(_ degrees: CGFloat?)
+    public func rotateByDegrees(_ degrees: CGFloat)
     {
-        if (degrees != nil)
-        {
-            self.transform = CGAffineTransform(rotationAngle: degrees! / CGFloat(180.0) * CGFloat(M_PI));
-        }
+        self.transform = self.transform.rotated(by: degrees / CGFloat(180.0) * CGFloat(-3.0 * CGFloat.pi));
     }
     
     

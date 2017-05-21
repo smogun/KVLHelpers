@@ -18,9 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        KVLLogger.printSuccessMessage("Successfully loaded view of \"ViewController\"", location: GetCodeLocation())
-        KVLLogger.printWarningMessage("Just a warning test", location: GetCodeLocation())
-        KVLLogger.printErrorMessage("Just an error test", location: GetCodeLocation())
         
         self.window?.rootViewController = ViewController();
         return true

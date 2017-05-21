@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "KVLHelpers"
-  s.version          = "0.2.0"
+  s.version          = "0.2.2"
   s.summary          = "A usefull set of extensions and classes"
 
 # This description is used to generate tags and improve search results.
@@ -40,5 +40,5 @@ KVLhelpers library is a set of useful extensions to popular classes and other ut
 
   # s.public_header_files = 'KVLHelpers/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.dependency 'KVLLogger'
 end

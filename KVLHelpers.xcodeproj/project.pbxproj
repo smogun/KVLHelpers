@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C605A3371BAF1F9600BE47FC /* KVLHelpers.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */; };
 		C605A33A1BAF1F9A00BE47FC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C605A3381BAF1F9A00BE47FC /* LICENSE */; };
-		C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334B1BB6812C003D93D2 /* KVLLogger.swift */; };
 		C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */; };
 		C61033541BB6812C003D93D2 /* NSDictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */; };
 		C61033551BB6812C003D93D2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610334F1BB6812C003D93D2 /* String+Extensions.swift */; };
@@ -39,7 +38,6 @@
 		C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KVLHelpers.podspec; sourceTree = "<group>"; };
 		C605A3381BAF1F9A00BE47FC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C605A3391BAF1F9A00BE47FC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C610334B1BB6812C003D93D2 /* KVLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLLogger.swift; sourceTree = "<group>"; };
 		C610334D1BB6812C003D93D2 /* NSDate+RFC3339Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RFC3339Extention.swift"; sourceTree = "<group>"; };
 		C610334E1BB6812C003D93D2 /* NSDictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extensions.swift"; sourceTree = "<group>"; };
 		C610334F1BB6812C003D93D2 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		C610334A1BB6812C003D93D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C610334B1BB6812C003D93D2 /* KVLLogger.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				C61033561BB6812C003D93D2 /* UIColor+Extension.swift in Sources */,
 				C61033531BB6812C003D93D2 /* NSDate+RFC3339Extention.swift in Sources */,
 				C6EE15A71BAD6AE8005786AF /* AppDelegate.swift in Sources */,
-				C61033521BB6812C003D93D2 /* KVLLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
