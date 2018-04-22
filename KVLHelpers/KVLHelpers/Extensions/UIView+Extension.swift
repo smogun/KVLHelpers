@@ -17,7 +17,7 @@ import UIKit
 
 
 
-public extension UIView
+@objc public extension UIView
 {
     /**
     * Shortcut for frame.origin

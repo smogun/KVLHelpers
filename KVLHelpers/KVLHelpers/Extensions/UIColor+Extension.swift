@@ -15,7 +15,7 @@ public func RandomColor() -> UIColor
 }
 
 
-public extension UIColor
+@objc public extension UIColor
 {
     public class func RGBA(_ r: CGFloat,  g: CGFloat,  b: CGFloat,  a: CGFloat) -> UIColor
     {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension NSDictionary
+@objc public extension NSDictionary
 {
     /****************************************************************************************/
     public func getString(_ key: String!) -> String!

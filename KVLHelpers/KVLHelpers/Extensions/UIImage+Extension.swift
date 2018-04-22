@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIImage {
+@objc public extension UIImage {
     public func imageByApplyingAlpha(_ alpha: CGFloat) -> UIImage!
     {        
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0);
