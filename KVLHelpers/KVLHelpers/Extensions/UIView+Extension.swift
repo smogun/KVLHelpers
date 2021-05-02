@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc enum EntorpolationDirection: Int16
+@objc public enum EntorpolationDirection: Int16
 {
     case horizontal = 1
     case vertical   = 2
@@ -17,7 +17,7 @@ import UIKit
 
 
 
-extension UIView
+@objc public extension UIView
 {
     /**
     * Shortcut for frame.origin

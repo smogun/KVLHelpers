@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String
+public extension String
 {
     var length: Int { return (self as NSString).length }
     

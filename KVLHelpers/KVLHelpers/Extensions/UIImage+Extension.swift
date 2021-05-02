@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+@objc public extension UIImage {
     @objc func imageByApplyingAlpha(_ alpha: CGFloat) -> UIImage!
     {
        
