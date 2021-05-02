@@ -35,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FDD0124263EC907002189F2 /* KVLObjCGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVLObjCGlobalDefines.h; sourceTree = "<group>"; };
 		C605A3361BAF1F9600BE47FC /* KVLHelpers.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KVLHelpers.podspec; sourceTree = "<group>"; };
 		C605A3381BAF1F9A00BE47FC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C605A3391BAF1F9A00BE47FC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 				C610334F1BB6812C003D93D2 /* String+Extensions.swift */,
 				C61033501BB6812C003D93D2 /* UIColor+Extension.swift */,
 				C61033511BB6812C003D93D2 /* UIView+Extension.swift */,
-				1FDD0124263EC907002189F2 /* KVLObjCGlobalDefines.h */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

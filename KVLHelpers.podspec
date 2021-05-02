@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.name             = "KVLHelpers"
   s.version          = "0.2.3"
   s.summary          = "A usefull set of extensions and classes"
+  s.swift_version    = '5'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -28,9 +29,9 @@ KVLhelpers library is a set of useful extensions to popular classes and other ut
   s.source           = { :git => "https://github.com/smogun/KVLHelpers.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '12.0'
   s.requires_arc = true
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.0'
   s.source_files = 'KVLHelpers/KVLHelpers/**/*'
 
 
