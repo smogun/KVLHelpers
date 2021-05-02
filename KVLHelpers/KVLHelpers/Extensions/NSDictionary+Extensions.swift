@@ -8,10 +8,10 @@
 
 import Foundation
 
-@objc public extension NSDictionary
+extension NSDictionary
 {
     /****************************************************************************************/
-    public func getString(_ key: String!) -> String!
+    @objc func getString(_ key: String!) -> String!
     {
         let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
@@ -25,12 +25,12 @@ import Foundation
                 return ""
         }
         
-        return value as! String
+        return (value as! String)
     }
     
     
     /****************************************************************************************/
-    public func getNumber(_ key: String!) -> NSNumber!
+    @objc func getNumber(_ key: String!) -> NSNumber!
     {
         let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
@@ -44,13 +44,13 @@ import Foundation
                 return NSNumber(value: 0 as Int)
         }
         
-        return value as! NSNumber
+        return (value as! NSNumber)
     }
     
     
     
     /****************************************************************************************/
-    public func getArray(_ key: String!) -> NSArray!
+    @objc func getArray(_ key: String!) -> NSArray!
     {
         let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
@@ -64,13 +64,13 @@ import Foundation
                 return NSArray()
         }
         
-        return value as! NSArray
+        return (value as! NSArray)
     }
     
     
     
     /****************************************************************************************/
-    public func getDict(_ key: String!) -> NSDictionary!
+    @objc func getDict(_ key: String!) -> NSDictionary!
     {
         let value: AnyObject? =  self.value(forKey: key) as AnyObject?
         if (value == nil)
@@ -84,6 +84,6 @@ import Foundation
                 return NSDictionary()
         }
         
-        return value as! NSDictionary
+        return (value as! NSDictionary)
     }
 }

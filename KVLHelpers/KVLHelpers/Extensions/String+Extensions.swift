@@ -8,19 +8,19 @@
 
 import Foundation
 
-public extension String
+extension String
 {
-    public var length: Int { return self.characters.count }
+    var length: Int { return (self as NSString).length }
     
-    public var pathExtension: String?
+    var pathExtension: String?
     {
         return URL(fileURLWithPath: self).pathExtension;
     }
-    public var lastPathComponent: String?
+    var lastPathComponent: String?
     {
         return URL(fileURLWithPath: self).lastPathComponent;
     }
-    public var stringByDeletingPathExtension: String?
+    var stringByDeletingPathExtension: String?
     {
         do
         {

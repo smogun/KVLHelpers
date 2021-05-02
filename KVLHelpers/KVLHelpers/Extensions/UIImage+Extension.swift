@@ -8,16 +8,18 @@
 
 import UIKit
 
-@objc public extension UIImage {
-    public func imageByApplyingAlpha(_ alpha: CGFloat) -> UIImage!
-    {        
+extension UIImage {
+    @objc func imageByApplyingAlpha(_ alpha: CGFloat) -> UIImage!
+    {
+       
+        
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0);
         
-        let ctx = UIGraphicsGetCurrentContext();
-        let area = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height);
+        let ctx:CGContext? = UIGraphicsGetCurrentContext();
+        let area = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.size.width, height: self.size.height);
         
-        ctx!.scaleBy(x: 1, y: -1);
-        ctx!.translateBy(x: 0, y: -area.size.height);
+        ctx!.scaleBy(x: CGFloat(1), y: CGFloat(-1));
+        ctx!.translateBy(x: CGFloat(0), y: -area.size.height);
         
         ctx!.setBlendMode(.multiply);
         
@@ -25,58 +27,90 @@ import UIKit
         
         ctx!.draw(self.cgImage!, in: area);
         
-        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        let newImage:UIImage? = UIGraphicsGetImageFromCurrentImageContext();
         
         UIGraphicsEndImageContext();
         
         return newImage;
+ 
+  
     }
     
+    @objc func imageRotatedTo(orientation: UIImage.Orientation) -> UIImage
+    {
+        
+        UIGraphicsBeginImageContext(self.size);
+        let context = UIGraphicsGetCurrentContext()!
+        
+        if orientation == .right {
+            context.rotate (by: degreesToRadians(deg: CGFloat(90)));
+        } else if orientation == .left {
+            context.rotate (by: degreesToRadians(deg: CGFloat(-90)));
+        } else if orientation == .down {
+            // NOTHING
+        } else if orientation == .up {
+            context.rotate (by: degreesToRadians(deg: CGFloat(90)));
+        }
+        
+        self.draw(at: CGPoint(x: 0, y: 0))
+
+
+        
+
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext();
+        return image;
+    }
     
-    public func imageRotatedByDegrees(_ degrees: CGFloat) -> UIImage
+    @objc func imageRotatedByDegrees(_ degrees: CGFloat) -> UIImage
     {
         // calculate the size of the rotated view's containing box for our drawing space
-        let rotatedViewBox = UIView(frame:CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height));
-        let t = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / CGFloat(180.0));
+        let rotatedViewBox:UIView = UIView(frame:CGRect(x: CGFloat(0), y: CGFloat(0), width: self.size.width, height: self.size.height));
+        let t:CGAffineTransform = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / CGFloat(180.0));
         rotatedViewBox.transform = t;
-        let rotatedSize = rotatedViewBox.frame.size;
+        let rotatedSize:CGSize = rotatedViewBox.frame.size;
         // Create the bitmap context
         UIGraphicsBeginImageContext(rotatedSize);
-        let bitmap = UIGraphicsGetCurrentContext();
+        let bitmap:CGContext? = UIGraphicsGetCurrentContext();
         
         // Move the origin to the middle of the image so we will rotate and scale around the center.
-        bitmap!.translateBy(x: rotatedSize.width/2, y: rotatedSize.height/2);
+        bitmap!.translateBy(x: rotatedSize.width/CGFloat(2), y: rotatedSize.height/CGFloat(2));
         
         //   // Rotate the image context
         bitmap!.rotate(by: (degrees * CGFloat.pi / CGFloat(180.0)));
         
         // Now, draw the rotated/scaled image into the context
-        bitmap!.scaleBy(x: 1.0, y: -1.0);
-        bitmap!.draw(self.cgImage!, in: CGRect(x: -self.size.width / 2, y: -self.size.height / 2, width: self.size.width, height: self.size.height));
+        bitmap!.scaleBy(x: CGFloat(1.0), y: CGFloat(-1.0));
+        bitmap!.draw(self.cgImage!, in: CGRect(x: -self.size.width / CGFloat(2), y: -self.size.height / CGFloat(2), width: self.size.width, height: self.size.height));
         
-        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        let newImage:UIImage? = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return newImage!;
     }
     
-    public static func imageFromColor(_ color: UIColor!) -> UIImage
+    @objc static func imageFromColor(_ color: UIColor!) -> UIImage
     {
-        return UIImage.imageFromColor(color, size:CGSize(width: 1.0, height: 1.0));
+        return UIImage.imageFromColor(color, size:CGSize(width: CGFloat(1), height: CGFloat(1)));
     }
     
     
-    public static func imageFromColor(_ color: UIColor!, size: CGSize) -> UIImage
+    @objc static func imageFromColor(_ color: UIColor!, size: CGSize) -> UIImage
     {
-        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height);
+        let rect:CGRect = CGRect(x: CGFloat(0), y: CGFloat(0), width: size.width, height: size.height);
         UIGraphicsBeginImageContext(rect.size);
-        let context = UIGraphicsGetCurrentContext();
+        let context:CGContext? = UIGraphicsGetCurrentContext();
         
         context!.setFillColor(color.cgColor);
         context!.fill(rect);
         
-        let image = UIGraphicsGetImageFromCurrentImageContext();
+        let image:UIImage? = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
         return image!;
+    }
+    
+    func degreesToRadians(deg: CGFloat) -> CGFloat
+    {
+        return deg * .pi/CGFloat(180)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public enum EntorpolationDirection: Int16
+@objc enum EntorpolationDirection: Int16
 {
     case horizontal = 1
     case vertical   = 2
@@ -17,12 +17,12 @@ import UIKit
 
 
 
-@objc public extension UIView
+extension UIView
 {
     /**
     * Shortcut for frame.origin
     */
-    public var origin:CGPoint{get{return self.frame.origin}}
+    @objc var origin:CGPoint{get{return self.frame.origin}}
     
     
     
@@ -30,7 +30,7 @@ import UIKit
     /**
     * Shortcut for frame.size
     */
-    public var size:CGSize{get{return self.frame.size}}
+    @objc var size:CGSize{get{return self.frame.size}}
     
     
     
@@ -38,7 +38,7 @@ import UIKit
     /**
     * Shortcut for frame.origin.x + width
     */
-    public var endX:CGFloat{get{return self.frame.origin.x + self.frame.size.width}}
+    @objc var endX:CGFloat{get{return self.frame.origin.x + self.frame.size.width}}
     
     
     
@@ -46,7 +46,7 @@ import UIKit
     /**
     * Shortcut for frame.origin.y + frame.size.height
     */
-    public var endY:CGFloat{get{return self.frame.origin.y + self.frame.size.height}}
+    @objc var endY:CGFloat{get{return self.frame.origin.y + self.frame.size.height}}
     
     
     
@@ -54,7 +54,7 @@ import UIKit
     /**
     * Shortcut to change frame's width
     */
-    @inline(__always) public func changeWidth(_ newWidth: CGFloat)
+    @objc @inline(__always) func changeWidth(_ newWidth: CGFloat)
     {
         self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: newWidth, height: self.frame.size.height);
     }
@@ -65,7 +65,7 @@ import UIKit
     /**
     * Shortcut to change frame's height
     */
-    @inline(__always) public func changeHeight(_ newHeight: CGFloat)
+    @objc @inline(__always) func changeHeight(_ newHeight: CGFloat)
     {
         self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: newHeight);
     }
@@ -76,14 +76,14 @@ import UIKit
     /**
     * Shortcut to add subview at center of view
     */
-    public func addSubviewAtCenter(_ subView: UIView?)
+    @objc func addSubviewAtCenter(_ subView: UIView?)
     {
         if (subView == nil)
         {
             return;
         }
         
-        var subViewFrame = subView!.frame;
+        var subViewFrame:CGRect = subView!.frame;
         subViewFrame.origin.x = self.size.width / 2 - subViewFrame.size.width / 2;
         subViewFrame.origin.y = self.size.height / 2 - subViewFrame.size.height / 2;
         subView!.frame = subViewFrame;
@@ -96,15 +96,15 @@ import UIKit
     /**
     * Shortcut to add subview at center of view horizontally
     */
-    public func addSubviewAtCenterHorizontally(_ subView: UIView?, originY: CGFloat)
+    @objc func addSubviewAtCenterHorizontally(_ subView: UIView?, originY: CGFloat)
     {
         if (subView == nil)
         {
             return;
         }
         
-        var subViewFrame = subView!.frame;
-        subViewFrame.origin.x = self.size.width / 2 - subViewFrame.size.width / 2;
+        var subViewFrame:CGRect = subView!.frame;
+        subViewFrame.origin.x = self.size.width / CGFloat(2) - subViewFrame.size.width / CGFloat(2);
         subViewFrame.origin.y = originY;
         subView!.frame = subViewFrame;
         self.addSubview(subView!);
@@ -116,9 +116,9 @@ import UIKit
     /**
     * Rotate view by degrees
     */
-    public func rotateByDegrees(_ degrees: CGFloat)
+    @objc func rotateByDegrees(_ degrees: CGFloat)
     {
-        self.transform = self.transform.rotated(by: degrees / CGFloat(180.0) * CGFloat(-3.0 * CGFloat.pi));
+        self.transform = CGAffineTransform(rotationAngle: degrees * .pi / CGFloat(180)) // self.transform.rotated(by: degrees / CGFloat(180.0) * CGFloat(-3.0 * CGFloat.pi));
     }
     
     
@@ -130,7 +130,7 @@ import UIKit
     /**
      * Convert current view to UIImage
      */
-    public func toImage(_ legacy: Bool) -> UIImage?
+    @objc func toImage(_ legacy: Bool) -> UIImage?
     {
         var imageToReturn: UIImage? = nil;
         
@@ -146,6 +146,7 @@ import UIKit
                     }
                     else
                     {
+                        //faster than render
                         self.drawHierarchy(in: self.bounds, afterScreenUpdates: true);
                     }
                     imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
@@ -159,30 +160,51 @@ import UIKit
     /**
      * Convert current view to UIImage
      */
-    public func toImage() -> UIImage?
+    @objc func toImage() -> UIImage?
     {
-        return self.toImage(true)
+       return self.toImage(true)
+ 
     }
-    
-    
-    
-    
+
+
+    @objc func toImageGoodQuality() -> UIImage?
+    {
+        var imageToReturn: UIImage? = nil;
+
+        autoreleasepool
+            {
+                UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0.0);
+                let context:CGContext? = UIGraphicsGetCurrentContext();
+                if (context != nil)
+                {
+
+                        //faster than render
+                        self.drawHierarchy(in: self.bounds, afterScreenUpdates: false);
+
+                    imageToReturn = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                }
+
+        }
+        return imageToReturn;
+    }
+ 
     /**
      * capture specific frame in to UIImage
      */
-    public func captureRect(_ rect: CGRect) -> UIImage!
+    @objc func captureRect(_ rect: CGRect) -> UIImage!
     {
         UIGraphicsBeginImageContext(self.frame.size);
-        let context = UIGraphicsGetCurrentContext()
+        let context:CGContext? = UIGraphicsGetCurrentContext()
         if (context == nil)
         {
             return UIImage();
         }
         self.layer.render(in: context!)
         
-        let screenShot = UIGraphicsGetImageFromCurrentImageContext();
+        let screenShot:UIImage? = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        let imageRef = screenShot!.cgImage!.cropping(to: rect);
+        let imageRef:CGImage? = screenShot!.cgImage!.cropping(to: rect);
         if (imageRef == nil)
         {
             return UIImage();
@@ -197,16 +219,16 @@ import UIKit
     /**
      * Add parralax effect
      */
-    public func addEntorpolation(_ direction: EntorpolationDirection)
+    @objc func addEntorpolation(_ direction: EntorpolationDirection)
     {
-        let group = UIMotionEffectGroup();
-        let motionEffects = NSMutableArray();
-        let relativeValue = 20;
+        let group:UIMotionEffectGroup = UIMotionEffectGroup()
+        let motionEffects:NSMutableArray = NSMutableArray();
+        let relativeValue:Int = Int(20);
         
         /* Bot using bitmask in order */
         if (direction == .horizontal || direction == .both)
         {
-            let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+            let horizontalMotionEffect:UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
                 type: .tiltAlongHorizontalAxis)
             horizontalMotionEffect.minimumRelativeValue = -1 * relativeValue
             horizontalMotionEffect.maximumRelativeValue = relativeValue
@@ -216,7 +238,7 @@ import UIKit
         
         if (direction == .vertical || direction == .both)
         {
-            let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+            let verticalMotionEffect:UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
                 type: .tiltAlongVerticalAxis)
             verticalMotionEffect.minimumRelativeValue = -1 * relativeValue
             verticalMotionEffect.maximumRelativeValue = relativeValue
