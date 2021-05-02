@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "KVLHelpers"
-  s.version          = "0.2.3"
+  s.version          = "0.2.4"
   s.summary          = "A usefull set of extensions and classes"
   s.swift_version    = '5'
 
